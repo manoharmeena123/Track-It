@@ -35,15 +35,7 @@ function displayClient(array) {
         </div>`
     }).join("");
     
-    let editClient = document.querySelector(".material-symbols-outlined");
-    console.log(editClient)
-    for(let key in editClient){
-        // key.addEventListener("click",(event)=>{
-        document.querySelector(".bg-model").style.display = 'flex';
-                  let dataId = event.target.dataset.id;
-                  console.log(dataId);
-        };
-      };
+    
     
 
 
