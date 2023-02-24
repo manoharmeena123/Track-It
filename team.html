@@ -62,7 +62,6 @@
                                         <div class="membr_email_head">Email</div> 
                                         <div class="billable_head">BILLABLE RATE (USD)</div> 
                                         <div class="role_head">ROLE</div> 
-                                        <div class="groups_head">GROUP</div> 
                                         <div class="groups_head"> </div> 
                                     </div>
                                 </div>
@@ -74,9 +73,8 @@
                                             <input type="text" name="hourlyRate" spellcheck="false" inputnumber="" autocomplete="off" readonly="" class="">
                                             <div class="changeRate" onclick="changeRate()"><a class="">Change</a></div>    
                                         </div>
-                                        <div class="role" onclick="changeRole()"><span class="material-symbols-outlined">add_circle</span><a class="">Role</a></div> 
-                                        <div class="groups" onclick="changeGroup()"><span class="material-symbols-outlined">add_circle</span><a class="">Group</a></div> 
-                                        <div class="more_icon"><span class="material-symbols-outlined">more_vert</span></div>
+                                        <div class="role_div" onclick="changeRole()"><span class="material-symbols-outlined">add_circle</span><a class="">Role</a></div> 
+                                        <div class="more_icon"><span class="material-symbols-outlined more_vert">more_vert</span></div>
                                     </div>
                                 </div>
                             </div>
@@ -101,7 +99,7 @@
         </div>
     </section>
 
-    <!-- !-------------------------------- POPUP PAGE ------------------------------ -->
+    <!-- !-------------------------------- RATE POPUP PAGE ------------------------------ -->
     <section>        
         <div class="bg-model">
             <div class="model-content">
@@ -122,6 +120,45 @@
                         <input class="submit_bt" value="Save" type="submit">
                     </div>
                 </form>
+            </div>
+        </div>
+    </section>
+    
+    
+    <!-- !-------------------------------- ROLE POPUP PAGE ------------------------------ -->
+    <section>        
+        <div class="bg-model_role">
+            <div class="model-content">
+                <div class="top_part">
+                    <div class="header">Create new role</div>
+                    <div class="close" onclick="closeRole()"><span class="cross material-symbols-outlined">close</span></div>
+                </div>
+                <hr>
+                <div class="public_div">
+                    <input class="owner-checkbox" type="checkbox" value="Private">
+                    <p class="owner">Owner</p>
+                </div>
+                <p class="owner_detail">Can't be removed or deactivated until ownership is transferred</p>
+                <div class="form_div">
+                    <form action="">
+                        <hr>
+                        <div class="content-div">STANDARD feature <button class="upgrade_button">Upgrade</button>
+                        </div>
+                        <div class="manager_div">
+                            <span class="checkbox material-symbols-outlined">check_box_outline_blank</span><p class="Project_manager">Project Manager</p>
+                        </div>
+                        <p class="manager_detail">Can edit all projects they manage and see all time on those projects</p>
+                        <div class="team_div">
+                            <span class="checkbox material-symbols-outlined">check_box_outline_blank</span><p class="Project_manager">Team Manager</p>
+                        </div>
+                        <p class="manager_detail">Can see all time of users they manage and approve their timesheets</p>
+                        <hr>
+                        <div class="button_div">
+                            <button class="close_bt" onclick="closeRole()">Cancel</button>
+                            <input class="submit_bt" value="Save" type="submit">
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </section>

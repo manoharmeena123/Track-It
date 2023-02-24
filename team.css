@@ -24,31 +24,31 @@ body {
   border-right: 1px solid rgb(228, 228, 228);
   border-bottom: 1px solid rgb(228, 228, 228);
 }
-.cntnt_div_child{
-    display: flex;
-    justify-content: space-between;
-  }
-.content_left{
+.cntnt_div_child {
+  display: flex;
+  justify-content: space-between;
+}
+.content_left {
   display: flex;
 }
-.clients_frst_child_div{
+.clients_frst_child_div {
   margin-top: 1%;
   padding: 0.5%;
   background-color: #e4eaee;
 }
-.btn{
+.btn {
   border-radius: 3px;
 }
-.search_member input{
+.search_member input {
   margin-left: 20px;
   width: 250px;
   height: 37px;
   padding: 0 5%;
 }
-.add_member{
+.add_member {
   justify-content: right;
 }
-.add_member button{
+.add_member button {
   width: 180px;
   height: 37px;
   padding: 1%;
@@ -60,66 +60,66 @@ body {
 .add_member button:hover {
   background-color: #0492d3;
 }
-.client_child_content_head{
+.client_child_content_head {
   display: flex;
   justify-content: space-evenly;
   padding: 1%;
   margin-left: -13%;
 }
-.client_child_content{
+.client_child_content {
   display: grid;
-  padding: 0.5%;
+  padding: 1% 0.5%;
   margin-left: -5px;
-  grid-template-columns: repeat(6,1fr);
+  grid-template-columns: repeat(6, 1fr);
 }
-.client_child_content:hover{
+.client_child_content:hover {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
-.hourlyrate_div{
+.hourlyrate_div {
   display: flex;
 }
-.membr_name{
+.membr_name {
   width: 150px;
-  margin-left: 2%;
+  margin-left: 17%;
 }
-.membr_email{
+.membr_email {
   width: 150px;
-  margin-left: -20%;
+  margin-left: 28.5%;
 }
-.hourlyrate_div input{
-  width: 70%;
+.hourlyrate_div input {
+  width: 100%;
 }
-.material-symbols-outlined{
+.material-symbols-outlined {
   font-size: 14px;
   color: #03a0e9;
   cursor: pointer;
 }
-.role{
-  width: 100px;
-  margin-left: 27%;
-}
-.hourlyrate_div{
-  width: 100px;
-  
-}
-.groups{
-  width: 100px;
-  margin-left: 20%;
-}
-a{
+.role_div {
+  width: 90px;
+  margin-left: 90%;
   cursor: pointer;
 }
-.client_child_content div{
+.hourlyrate_div {
+  margin-left: 50%;
+  width: 100px;
+}
+a {
+  cursor: pointer;
+}
+.client_child_content div {
   padding-left: 1.5%;
 }
-.more_icon{
-  margin-left: 80%;
+.more_vert {
+  font-weight: bolder;
+  font-size: 20px;
+  margin-left: 185%;
+  color: #666666;
 }
-
 
 /* !---------- POPUP PAGE CSS ------------ */
 
-.bg-model {
+.bg-model,
+.bg-model_role {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
@@ -135,11 +135,11 @@ a{
   margin: auto;
   background-color: white;
   border-radius: 4px;
-} 
-.close{
-    margin-top: 17px;
-    cursor: pointer;
-    color: rgb(196, 196, 196);
+}
+.close {
+  margin-top: 17px;
+  cursor: pointer;
+  color: rgb(196, 196, 196);
 }
 .top_part {
   display: flex;
@@ -173,7 +173,7 @@ input {
   font-size: 15px;
   padding: 1% 2%;
 }
-.public_div{
+.public_div {
   display: flex;
 }
 .close_bt {
@@ -191,7 +191,7 @@ input {
   border-radius: 2px;
   color: #ffffff;
 }
-.content-div{
+.content-div {
   width: 92%;
   padding: 2%;
   padding-left: 3%;
@@ -200,8 +200,54 @@ input {
   margin: auto;
   margin-bottom: 20px;
 }
-.cross{
+.cross {
   margin-top: 5px;
   font-size: 24px;
   color: #666666;
+}
+
+/* * ---------- 2ND POPUP PAGE -------- */
+.form_div{
+  width: 90%;
+  margin: auto;
+}
+.upgrade_button{
+  margin-left: 10px;
+  background-color: #03a8f4;
+  padding: 1% 2%;
+  color: white;
+  border: 0;
+}
+.owner-checkbox{
+  margin-top: -15px;
+  margin-left: 20px;
+  
+}
+.owner{
+  color: #c4c4c4;
+}
+.owner_detail{
+  margin-top: -4%;
+  margin-left: 35px;
+  font-size: 15px;
+  color: #949393;
+}
+.manager_div,.team_div{
+  display: flex;
+}
+.manager_div span,.team_div span{
+  margin-top: 5px;
+  margin-right: 5px;
+  margin-left: 15px;
+}
+.checkbox{
+  color: #d2d2d2;
+}
+.Project_manager{
+  color: #d2d2d2;
+}
+.manager_detail{
+  margin-left: 8%;
+  margin-top: -5%;
+  color: #c5c4c4;
 }
