@@ -206,7 +206,7 @@ input {
   color: #666666;
 }
 
-/* * ---------- 2ND POPUP PAGE -------- */
+/* ! ---------- 2ND POPUP PAGE -------- */
 .form_div{
   width: 90%;
   margin: auto;
@@ -250,4 +250,11 @@ input {
   margin-left: 8%;
   margin-top: -5%;
   color: #c5c4c4;
+}
+.nav-link{
+  cursor: pointer;
+  color: #585858;
+}
+.nav-link:hover{
+  color: #585858;
 }

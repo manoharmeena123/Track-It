@@ -4,7 +4,7 @@ function changeRate() {
 function changeRole() {
     document.querySelector(".bg-model_role").style.display = 'flex';
 };
-function closeRole() {
+function closeRate() {
     document.querySelector(".bg-model").style.display = 'none';
 };
 function closeRole() {
