@@ -1,0 +1,20 @@
+Time Tracker
+
+1. client Schema | add & update & del
+{name, email, address,note}
+
+2. project Schema 
+
+     {projectName, clientName,tracked, amount, starred:Boolean, access|private/pub  }
+
+
+
+3. Tasks
+
+     { date, userId, projectId, start, end ,totalTime  }
+
+
+
+
+4. team schema 
+     { name, email, billableRate, role, group }
