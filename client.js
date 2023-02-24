@@ -6,7 +6,6 @@ function close_details() {
 };
 
 let clientName = document.getElementById("clientName");
-
 function addClient() {
     let array = JSON.parse(localStorage.getItem("clientDetails")) || [];
     let obj = {
@@ -20,25 +19,24 @@ function addClient() {
     displayClient(array);
 }
 
+
 function displayClient(array) {
     let dataColumn = document.querySelector(".client_parent_content");
-    // dataColumn.innerHTML = ``;
     dataColumn.innerHTML = array.map((item)=>{
         return `<div class="client_child_content">
         <div id="client_name">${item.name}</div>
         <div id="client_address">${item.address}</div>
         <div class="icons">
-            <div id="note_icon"><span class="material-symbols-outlined">description</span></div>
-            <div class="edit_icon" onClick="editClient()"><span class="material-symbols-outlined">edit</span></div>
-            <div id="show_more"><span class="material-symbols-outlined">more_vert</span></div>
+        <div id="note_icon"><span class="material-symbols-outlined">description</span></div>
+        <div class="edit_icon" onClick="editClient()"><span class="material-symbols-outlined">edit</span></div>
+        <div id="show_more"><span class="material-symbols-outlined">more_vert</span></div>
         </div>
         </div>`
     }).join("");
     
+   
+};
     
-    
-
-
 let array = JSON.parse(localStorage.getItem("clientDetails"));
 displayClient(array);
-
+    
