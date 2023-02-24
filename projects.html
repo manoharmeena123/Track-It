@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"/>
-    <link rel="stylesheet" href="/frontend/css/client.css">
+    <link rel="stylesheet" href="/frontend/css/projects.css">
     <title>Projects • TrackIt</title>
 </head>
 <body>
@@ -15,7 +15,7 @@
         <div class="projects_page">
             <div class="top-head">
                 <div class="header-project">Projects</div>
-                <div class="create_project"><button>CREATE NEW PROJECT</button></div>
+                <div class="create_project" onclick="addProjects()"><button>CREATE NEW PROJECT</button></div>
             </div>
             <div class="content_prnt_div">
                 <div class="main_div_parent">
@@ -49,6 +49,33 @@
         </div>
     </section>
 
+    <!-- !-------------------------------- POPUP PAGE ------------------------------ -->
+    <section>        
+        <div class="bg-model">
+            <div class="model-content">
+                <div class="top_part">
+                    <div class="header">Create new project</div>
+                    <div class="close" onclick="closeProjects()"><span class="material-symbols-outlined">close</span></div>
+                </div>
+                <hr>
+                <form action="">
+                    <div class="project_details">
+                        <input type="text" class="mrgn-btm" placeholder="Enter project name">
+                        <input type="text" class="mrgn-btm" placeholder="Enter client name">
+                        <div class="public_div">
+                            <input class="private" type="checkbox" value="Private"><p>Public</p><span class="material-symbols-outlined">error</span>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="button_div">
+                        <button class="close_bt" onclick="closeProjects()">Cancel</button>
+                        <input class="submit_bt" value="Save" type="submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
 
+    <script src="./projects.js"></script>
 </body>
 </html>
