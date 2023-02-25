@@ -17,8 +17,8 @@ const authenticate = async(req, res, next) => {
   if (token) {
     const decoded = jwt.verify(token, "masai");
     if (decoded) {
-            const userrole = decoded.role  
-            req.headers.userrole = userrole
+          const userId = decoded.userId
+      req.body.userId = userId
            next();
          } else {
            res.send("Please Login");
