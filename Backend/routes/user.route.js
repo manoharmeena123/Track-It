@@ -75,8 +75,8 @@ try {
         bcrypt.compare(password,hashed_pass,(err,result)=>{
             if(result){
            
-                const token = jwt.sign({"userID":user._id},'masai',{expiresIn:"1h"})
-                const refreshtoken = jwt.sign({"userID":user._id},'kasai',{expiresIn:"7d"})
+                const token = jwt.sign({"userId":user._id},'masai',{expiresIn:"1h"})
+                const refreshtoken = jwt.sign({"userId":user._id},'kasai',{expiresIn:"7d"})
                 res.cookie("token",token,{httpOnly:true,maxAge:1000000}).cookie("refreshtoken",refreshtoken,{httpOnly:true,maxAge:1000000})
             //    redis.set("token",token)
             //  redis.set("refreshtoken",refreshtoken)
