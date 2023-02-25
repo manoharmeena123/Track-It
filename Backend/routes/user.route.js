@@ -41,17 +41,10 @@ const user = await UserModel.findOne({email})
 if(user){
     res.json("Already exist,Please login")
 }else{
-    //   let OTP =  req.cookies.OTP
-    // let OTP = await redis.get("otp")
-    //   console.log(OTP,otp)
-        // if(otp!=OTP){
-        //     res.json("Invalid OTP while signup !")
-    
-        // }else{
     
         try {
             bcrypt.hash(password,5,async(err,hash)=>{
-                const user = new UserModel({email,password:hash})
+                const user = new UserModel({email,password:hash,otp})
                await user.save()
                res.json({"msg":"User Signup Successfully","response":"ok"})
             }) 
@@ -82,8 +75,8 @@ try {
         bcrypt.compare(password,hashed_pass,(err,result)=>{
             if(result){
            
-                const token = jwt.sign({"userID":user._id,role:user.role},'masai',{expiresIn:"1h"})
-                const refreshtoken = jwt.sign({"userID":user._id,role:user.role},'kasai',{expiresIn:"7d"})
+                const token = jwt.sign({"userID":user._id},'masai',{expiresIn:"1h"})
+                const refreshtoken = jwt.sign({"userID":user._id},'kasai',{expiresIn:"7d"})
                 res.cookie("token",token,{httpOnly:true,maxAge:1000000}).cookie("refreshtoken",refreshtoken,{httpOnly:true,maxAge:1000000})
             //    redis.set("token",token)
             //  redis.set("refreshtoken",refreshtoken)
@@ -95,7 +88,7 @@ try {
         })
     }else{
         res.json({"msg":"Result Not Correct"})
-        console.log(err)
+        // console.log(err)
     }
 } catch (error) {
    

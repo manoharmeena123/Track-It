@@ -30,7 +30,6 @@
   </body>
 </html>
 <script>
-   let url="http://localhost:4500"
 const inputs = document.querySelectorAll("input"),
 button = document.querySelector("button");
 
@@ -94,7 +93,7 @@ let fourth=document.querySelector("#fourth").value;
        password:p.password,
        otp:jhola
     };
-    let register_request = await fetch(`${url}/user/register`, {
+    let register_request = await fetch("http://localhost:4500/user/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

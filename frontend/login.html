@@ -61,42 +61,85 @@
 </body>
 </html>
 <script>
-      const Loginbtn = document.getElementById("login-btn");
-Loginbtn.addEventListener("click",LoginFunction);
+//       const Loginbtn = document.getElementById("login-btn");
+// Loginbtn.addEventListener("click",LoginFunction);
 
-async function LoginFunction(event){
-    try {
-        event.preventDefault();
-        let all_login_input = document.querySelectorAll("#login input");
+// async function LoginFunction(event){
+//     try {
+//         event.preventDefault();
+//         let all_login_input = document.querySelectorAll("#login input");
       
    
-    let email = document.querySelector("#email").value
-    let password = document.querySelector("#password").value
+//     let email = document.querySelector("#email").value
+//     let password = document.querySelector("#password").value
  
-    let obj  = {
-      email,password
-    }
+//     let obj  = {
+//       email,password
+//     }
   
-        console.log(obj);
-        let login_request = await fetch("http://localhost:4500/user/login",{
-            method : "POST",
-            body : JSON.stringify(obj),
-            headers : {
-                "Content-Type": "application/json", 
-            },
-        })
-        .then((res) => res.json())
-        .then((res) => {
-            console.log(res)
-            alert(res.msg)
-            localStorage.setItem("psctoken",res.token)
-            window.location.href= "../dashboard.html"
-        })
-        .catch((err) => console.log(err))
+//         console.log(obj);
+//         let login_request = await fetch("http://localhost:4500/user/login",{
+//             method : "POST",
+//             body : JSON.stringify(obj),
+//             headers : {
+//                 "Content-Type": "application/json", 
+//             },
+//         })
+//         .then((res) => res.json())
+//         .then((res) => {
+//             console.log(res)
+//             alert(res.msg)
+//             localStorage.setItem("psctoken",res.token)
+//             window.location.href= "./dashboard.html"
+//         })
+//         .catch((err) => console.log(err))
         
-    } catch (error) {
-		console.log(error.msg);
-        alert("wrong username or password. Please try again later.");
-    }
+//     } catch (error) {
+// 		console.log(error.msg);
+//         alert("wrong username or password. Please try again later.");
+//     }
+// }
+const login = document.querySelector("#login-btn");
+login.addEventListener("click", func);
+async function func(event) {
+  try {
+    event.preventDefault();
+    // let all_input_tags = document.querySelectorAll("#register input");
+
+    let email = document.querySelector("#email").value;
+    let  password = document.querySelector("#password").value;
+    let userObj = {
+      email,
+      password
+    };
+
+
+
+    let register_request = await fetch("http://localhost:4500/user/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userObj)
+    })
+      .then(res => res.json())
+      .then(data => {
+        // console.log(data)
+
+        if (data.msg == "Login Successfully") {
+          alert(data.msg)
+          // console.log(data)
+        //   localStorage.setItem("user", data.id);
+          window.location.href = "../timetracker.html"
+        } else {
+          alert(data.msg)
+          window.location.href = "./login.html"
+        }
+            
+      })
+      .catch(err => console.log(err))
+  } catch (error) {
+    alert("Something went wrong. Please try again later.");
+  }
 }
 </script>

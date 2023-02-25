@@ -53,9 +53,9 @@
 
             <!-- google button -->
             <div class="Sign_Up_Google_Button">
-                <a href="#" class="Sign_Up_Google">
+                <a href="https://github.com/login/oauth/authorize?client_id=14e72f7c4f49d818f585" class="Sign_Up_Google">
                     <img src="https://clockify.me/assets/ui-icons/icon-google.svg" alt="Google">
-                    <span class="Sign_Up_Google_Continue">Continue with Google </span> </a>
+                    <span class="Sign_Up_Google_Continue">Continue with Github </span> </a>
             </div>
 
         </div>
@@ -86,9 +86,9 @@
           password,
        
         };
-       let arr =[]
-       arr.push(userObj)
-  console.log(arr)
+      //  let arr =[]
+      //  arr.push(userObj)
+  // console.log(arr)
         let register_request = await fetch(
           "http://localhost:4500/user/otp",
           {
@@ -102,7 +102,7 @@
           .then((res) => res.json())
           .then((res) => {
             alert("Please Verify your OTP !");
-           localStorage.setItem("user",JSON.stringify(arr))
+           localStorage.setItem("user",JSON.stringify(userObj))
            localStorage.setItem("back",JSON.stringify(res))
           // console.log(res)
           
