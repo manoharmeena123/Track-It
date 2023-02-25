@@ -33,6 +33,22 @@ app.use("/user",userRouter)
 app.use(authenticate)
 app.use("/",newtokenRouter)
              
+
+
+//additional requirements
+// app.use(authenticate)
+const {clientRouter}=require("./routes/clients");
+const {ProjectRouter}=require("./routes/projects");
+const { taskRouter } = require("./routes/tasks");
+// const {teamRouter}=require('./routes/team')
+
+
+//additional routers 
+
+app.use("/tasks",taskRouter);
+app.use("/projects",ProjectRouter);
+app.use("/clients",clientRouter);
+// app.use("/team",teamRouter);
     
  app.listen(process.env.port,async()=>{
     try {

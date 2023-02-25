@@ -15,7 +15,7 @@
     <div class="Sign_Up_Contianer">
         <!-- Navbar -->
         <div class="Sign_Up_Navbar">
-            <a href="home.html"><img width="100px" src="./images/logo.jpg" alt="logo"></a>
+            <a href=""><img width="100px" src="./images/logo.jpg" alt="logo"></a>
             <a href="login.html" class="Sign_Up_Login">Log In</a>
         </div>
         <!-- Get Sarted -->
@@ -68,11 +68,10 @@
     </div>
 </div>
 </body>
-<!-- <script src="Sign_Up.js"></script> -->
 
 </html>
 <script>
-    const Register_btn = document.querySelector(".Sign_Up_Form");
+    const Register_btn = document.getElementById("signup");
     Register_btn.addEventListener("click", RegisterFunction);
   
     // Make API request to server for registering the new user.
@@ -87,9 +86,11 @@
           password,
        
         };
-  
+       let arr =[]
+       arr.push(userObj)
+  console.log(arr)
         let register_request = await fetch(
-          "http://localhost:4500/user/register",
+          "http://localhost:4500/user/otp",
           {
             method: "POST",
             headers: {
@@ -100,30 +101,25 @@
         )
           .then((res) => res.json())
           .then((res) => {
-            alert(res);
-            // window.location.href = "./login.html";
+            alert("Please Verify your OTP !");
+           localStorage.setItem("user",JSON.stringify(arr))
+           localStorage.setItem("back",JSON.stringify(res))
+          // console.log(res)
+          
+         window.location.href="./otp.html"
+
           })
           .catch((err) => console.log(err));
       } catch (error) {
         alert("Something went wrong. Please try again later.");
+        console.log(error)
       }
 
 
-      
-    // let otimep = random();
-    //   alert(otimep);
-      // let enter = prompt("Enter OTP");
-      // //console.log(enter);
-      // if (enter != null && Number(enter) === otimep) {
-      //   setTimeout(function () {
-      //     // alert("Order Placed Successfully!!!");
-      //     window.location.assign("login.html");
-      //   }, 2000);
-      // } else {
-      //   alert("Invalid OTP");
-      // }
+   
     }
 
+    
 
 
 
