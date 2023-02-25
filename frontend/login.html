@@ -61,7 +61,7 @@
 </body>
 </html>
 <script>
-      const Loginbtn = document.getElementsByClassName(".container__loginCard");
+      const Loginbtn = document.getElementById("login-btn");
 Loginbtn.addEventListener("click",LoginFunction);
 
 async function LoginFunction(event){
@@ -90,12 +90,12 @@ async function LoginFunction(event){
             console.log(res)
             alert(res.msg)
             localStorage.setItem("psctoken",res.token)
-            // window.location.href= "home.html"
+            window.location.href= "../dashboard.html"
         })
         .catch((err) => console.log(err))
         
     } catch (error) {
-		console.log(error);
+		console.log(error.msg);
         alert("wrong username or password. Please try again later.");
     }
 }

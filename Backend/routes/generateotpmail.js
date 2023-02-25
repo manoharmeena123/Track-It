@@ -6,7 +6,7 @@ const {redis} = require("../service/redis")
 // const {UserModel} = require("../models/user.model")
 
 function generate(){
-    return Math.floor(100000 + Math.random() * 90000)
+    return Math.floor(1000 + Math.random() * 9000)
 }
 let OTP = generate()
 
@@ -30,10 +30,10 @@ let OTP = generate()
                 text: `OTP Vefification ${OTP}`
             }).then(()=>{
                 console.log("mail sent successfully")
-                // res.send("OTP Sent Successfully")
-                res.cookie("OTP",OTP)
+                res.json(OTP)
+                // res.cookie("OTP",OTP)
              
-            //    redis.set("otp", OTP, "ex", 900000);
+            //    res.set("otp", OTP, "ex", 900000);
                 console.log(OTP)
                 next()
             }).catch((err)=>{

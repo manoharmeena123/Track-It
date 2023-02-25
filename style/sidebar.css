@@ -1,0 +1,77 @@
+   
+    
+  .sidebar{
+    background:#fff;
+    width: 250px;
+    height: 90vh;
+    position: fixed;
+    top: 81px;
+    /* border: 1px solid red; */
+    /* background-color: rgb(250, 250, 250); */
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.shortcut{
+    width: 250px;
+    /* margin-right: 5px; */
+    /* border: 1px solid blue; */
+    height: 90vh;
+    margin-top: 10px;
+}
+.shortcut a{
+    display: flex;
+    align-items: center;
+    margin-bottom: 23px;
+    width: 250px;
+    justify-content: space-between;
+     padding: 1px;
+     padding-left: 15px;
+}
+.shortcut a:hover{
+    background-color: rgb(186, 189, 192);
+}
+.shortcut a img{
+    height: 30px;
+    margin-right: 20px;
+    
+}
+.shortcut span{
+    width: 150px;
+}
+hr{
+    height: 1px;
+    width: 160px;
+
+}
+.subscribe h3{
+    font-size: 20px;
+    margin: 20px 0;
+    color: #5a5a5a;
+}
+.subscribe a{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    width: fit-content;
+    flex-wrap: wrap;
+}
+.subscribe a img{
+    width: 25px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+.small-sidebar{
+    width: 5%;
+}
+.small-sidebar a p{
+    display: none;
+}
+.small-sidebar h3{
+    display: none;
+}
+.small-sidebar hr{
+    width: 50%;
+    margin-bottom: 25px;
+}
+.small-sidebar a span{
+    display: none;
+}

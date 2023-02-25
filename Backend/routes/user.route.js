@@ -17,57 +17,43 @@ const { Console } = require("console")
 ///redis
 const redis = require("redis");
 
-// const client = redis.createClient({
-//     password: 'VXa1WN4beqRBSXvQnxH68cQrQmbr5Bhd',
-//     socket: {
-//         host: 'redis-10196.c305.ap-south-1-1.ec2.cloud.redislabs.com',
-//         port: 10196
-//     }
-// });
-// client.on('error', err => console.log('Redis Client Error', err));
-// client.connect();
-
-
-
 //Register===================================================================>
 
 
 
-// userRouter.post("/otp",mail,async(req,res)=>{
-//     const {email,password,role} = req.body
-//     const user = await UserModel.findOne({email})
-//     if(user){
-//         res.json("Already exist,Please login")
-              
-//     }else{
-//         res.send("OTP Generated !")
-//     } 
-                  
-         
-// })
+userRouter.post("/otp",mail,async(req,res)=>{
+//     // const {email,password} = req.body
+   
+//     // const user = await UserModel.findOne({email})
+//     // if(user){
+//     //     res.json("Already exist,Please login")         
+//     // }else{
+//     //     res.json("OTP generated !")
+//     // }     
+})
 
-
-
-
-userRouter.post("/register",mail,async(req,res)=>{
-    const {email,password} = req.body
-//    let enterotp = otp
+userRouter.post("/register" ,async(req,res)=>{
+    const {email,password,otp} = req.body
+//    let enterotp = otp 
+// let OTP = req.cookies.OTP
+// console.log(OTP)
 const user = await UserModel.findOne({email})
 if(user){
     res.json("Already exist,Please login")
 }else{
-//   let OTP =  req.cookies.OTP
-// let OTP = await redis.get("otp")
-//   console.log(OTP,otp)
-    // if(otp!=OTP){
-    //     res.json("Invalid OTP while signup !")
-
-    // }else if(otp==OTP){
+    //   let OTP =  req.cookies.OTP
+    // let OTP = await redis.get("otp")
+    //   console.log(OTP,otp)
+        // if(otp!=OTP){
+        //     res.json("Invalid OTP while signup !")
+    
+        // }else{
+    
         try {
             bcrypt.hash(password,5,async(err,hash)=>{
                 const user = new UserModel({email,password:hash})
                await user.save()
-               res.json("Hurray ,User signup Successfully !")
+               res.json({"msg":"User Signup Successfully","response":"ok"})
             }) 
         } catch (error) {
             res.json("Error in Signup")
@@ -114,7 +100,7 @@ try {
 } catch (error) {
    
     console.log(error)
-    res.send({"msg":"Login failed Error in try"})
+    res.json({"msg":"Login failed Error in try"})
 }   
  })
 
@@ -124,27 +110,27 @@ try {
 
 //Logout==========================================================================================>
    
-userRouter.get("/logout",async(req,res)=>{
-    const token = req.cookies.token
-    console.log(token)
-    // let token  = await redis.get("token")
-    // const refreshtoken = req.cookies.refreshtoken    
-    try {
-        // const blacklisteddata = JSON.parse(fs.readFileSync("./blacklist.json","utf-8"))
-        // blacklisteddata.push(token)
-        // fs.writeFileSync("./blacklist.json",JSON.stringify(blacklisteddata))
-        //  res.clearCookie("token").clearCookie("refreshtoken")
-        await client.LPUSH("blacktoken", token);
-        const data = await client.LRANGE("blacktoken",0,-1)
+// userRouter.get("/logout",async(req,res)=>{
+//     const token = req.cookies.token
+//     console.log(token)
+//     // let token  = await redis.get("token")
+//     // const refreshtoken = req.cookies.refreshtoken    
+//     try {
+//         // const blacklisteddata = JSON.parse(fs.readFileSync("./blacklist.json","utf-8"))
+//         // blacklisteddata.push(token)
+//         // fs.writeFileSync("./blacklist.json",JSON.stringify(blacklisteddata))
+//         //  res.clearCookie("token").clearCookie("refreshtoken")
+//         await client.LPUSH("blacktoken", token);
+//         const data = await client.LRANGE("blacktoken",0,-1)
         
-        //  redis.lpush()
+//         //  redis.lpush()
                         
-        res.send({"msg":"Logout Successfully"})
-    } catch (error) {
-        res.json("error in logout")
-        console.log("error in logout")
-    }       
-})
+//         res.send({"msg":"Logout Successfully"})
+//     } catch (error) {
+//         res.json("error in logout")
+//         console.log("error in logout")
+//     }       
+// })
 
 
 
@@ -167,4 +153,10 @@ module.exports ={
 
 
 
+//   let OTP =  req.cookies.OTP
+// let OTP = await redis.get("otp")
+//   console.log(OTP,otp)
+    // if(otp!=OTP){
+    //     res.json("Invalid OTP while signup !")
 
+    // }else if(otp==OTP){
