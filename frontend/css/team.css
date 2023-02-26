@@ -119,7 +119,8 @@ a {
 /* !---------- POPUP PAGE CSS ------------ */
 
 .bg-model,
-.bg-model_role {
+.bg-model_role,
+.bg-model-add {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
@@ -135,11 +136,6 @@ a {
   margin: auto;
   background-color: white;
   border-radius: 4px;
-}
-.close {
-  margin-top: 17px;
-  cursor: pointer;
-  color: rgb(196, 196, 196);
 }
 .top_part {
   display: flex;
@@ -205,56 +201,71 @@ input {
   font-size: 24px;
   color: #666666;
 }
+.close {
+  margin-top: 17px;
+  cursor: pointer;
+  color: rgb(196, 196, 196);
+}
 
 /* ! ---------- 2ND POPUP PAGE -------- */
-.form_div{
+.form_div {
   width: 90%;
   margin: auto;
 }
-.upgrade_button{
+.upgrade_button {
   margin-left: 10px;
   background-color: #03a8f4;
   padding: 1% 2%;
   color: white;
   border: 0;
 }
-.owner-checkbox{
+.owner-checkbox {
   margin-top: -15px;
   margin-left: 20px;
-  
 }
-.owner{
+.owner {
   color: #c4c4c4;
 }
-.owner_detail{
+.owner_detail {
   margin-top: -4%;
   margin-left: 35px;
   font-size: 15px;
   color: #949393;
 }
-.manager_div,.team_div{
+.manager_div,
+.team_div {
   display: flex;
 }
-.manager_div span,.team_div span{
+.manager_div span,
+.team_div span {
   margin-top: 5px;
   margin-right: 5px;
   margin-left: 15px;
 }
-.checkbox{
+.checkbox {
   color: #d2d2d2;
 }
-.Project_manager{
+.Project_manager {
   color: #d2d2d2;
 }
-.manager_detail{
+.manager_detail {
   margin-left: 8%;
   margin-top: -5%;
   color: #c5c4c4;
 }
-.nav-link{
+.nav-link {
   cursor: pointer;
   color: #585858;
 }
-.nav-link:hover{
+.nav-link:hover {
   color: #585858;
+}
+
+/* !----------------- ADD MEMBER ------------------ */
+
+.membr_name {
+  margin-left: -0%;
+}
+.membr_email {
+  margin-left: -0%;
 }
