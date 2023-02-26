@@ -11,9 +11,26 @@ taskRouter.post("/",async(req,res)=>{
     res.status(422).json({err:"please fill all the details"})
    }
    else {
+//check whether task already exists 
+//res.send(task)
+
     let newTask = new TaskModel(req.body);
     let out = await newTask.save();
     res.send(out);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    }
    }
    catch(err){
@@ -40,7 +57,7 @@ catch(err){
 
 
  taskRouter.get("/",async(req,res)=>{
-
+    //res.send(req.body)
     try{
         let data = await TaskModel.find();
         res.send(data)
@@ -55,14 +72,26 @@ catch(err){
 
 taskRouter.delete("/delete/:id",async(req,res)=>{
     let _id = req.params.id;
-   // res.send(_id)
+    
     try{
-   let tasks  = await TaskModel.findOneAndDelete({_id})
-   res.send("deleted successfully")
+   
+  await  TaskModel.findByIdAndDelete(_id, function (err, docs) {
+    if (err){
+        console.log(err)
+    }
+    else{
+        console.log("Deleted : ", docs);
+        res.send({msg:"deleted",docs})
+    }
+})
+   //res.send("deleted successfully")
     }
     catch(err){
         console.log("error in delete | taskrouter",err)
     }
+
+
+
     
      })
 

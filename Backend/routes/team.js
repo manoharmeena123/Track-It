@@ -9,8 +9,26 @@ teamRouter.get("/", async (req,res)=>{
         res.send(data);
     } catch (error) {
         res.send("Error while getting data")
+        console.log(error);
     }
 })
+
+teamRouter.get("/my-team",async(req,res)=>{
+    let {userId}=req.body;
+    
+    try{
+    let data = await TeamModel.find({userId})
+    res.send(data)
+
+
+
+    }catch(err){
+        console.log("error | team | myteam",err)
+    }
+})
+
+
+
 
 teamRouter.post("/", async (req,res)=>{
     let payload = req.body;
@@ -25,21 +43,21 @@ teamRouter.post("/", async (req,res)=>{
 });
 
 
-teamRouter.patch("/", async (req,res)=>{
-    let {_id} = req.body;
+teamRouter.patch("/:id", async (req,res)=>{
+    let _id= req.params.id;
     let payload = req.body;
 
     try {
-        let data = await TeamModel.findByIdAndUpdate({"_id": _id, payload});
-        res.send("Updated");
+        let data = await TeamModel.findByIdAndUpdate({"_id": _id}, payload,{new:true});
+        res.send(data);
     } catch (error) {
         console.log("error in patch | team Router + + + + + +++++++++",error)
         res.send("Error while getting data")
     }
 });
 
-teamRouter.delete("/", async (req,res)=>{
-    let {_id} = req.body;
+teamRouter.delete("/:id", async (req,res)=>{
+    let _id = req.params.id;
 
     try {
         await TeamModel.findByIdAndRemove({"_id": _id});
