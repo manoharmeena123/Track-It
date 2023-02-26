@@ -33,7 +33,7 @@ some snapshot of our website
 ## Our Team Members ❤️
 
 - [Ashwin Murugarajan](https://www.linkedin.com/in/ashwin-385a86166)
-- [please add your name]()
+- [Ejajul Ansari](https://www.linkedin.com/in/ejajul-ansari-39168b242/)
 - [please add your name]()
 - [please add your name]()
 - [please add your name]()
