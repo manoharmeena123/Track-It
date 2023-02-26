@@ -1,0 +1,398 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+}
+nav {
+  padding: 10px;
+  justify-content: space-between;
+  background-color: #fff;
+  position: fixed;
+  z-index: 10;
+  height: 80px;
+  width: 100%;
+  /* margin-bottom: 20px; */
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+#logo {
+  height: 50px;
+  width: 200px;
+}
+.left {
+  width: 700px;
+}
+.navbar .menu {
+  width: 28px;
+  margin-right: 25px;
+  margin-bottom: 16px;
+}
+.right {
+  display: flex;
+  width: 35%;
+  justify-content: space-evenly;
+  margin-top: 40px;
+}
+.right .name {
+  width: 200px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.right .name p {
+  font-size: 14px;
+}
+.right p {
+  font-size: large;
+}
+.navbar .question {
+  padding-top: 8px;
+}
+.navbar .notification {
+  padding-top: 8px;
+}
+.btn {
+  height: 35px;
+  width: 100px;
+  font-weight: 400;
+  font-size: 16px;
+  color: #5fbdf7;
+  border-radius: 5px;
+  border: 2px solid #5fbdf7;
+  background-color: transparent;
+  outline: none;
+  margin-bottom: 20px;
+}
+
+.btn:hover {
+  background-color: #5fbdf7;
+  color: white;
+}
+
+/* --------------drop down------------------- */
+.dropdown {
+  padding-bottom: 20px;
+  position: relative;
+  display: inline-block;
+}
+.dropbtn {
+  color: #333;
+  /* padding: 25px; */
+  font-size: 20px;
+  padding-left: 10px;
+}
+.dropdown-content {
+  left: -140px;
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  min-width: 230px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  font-size: 18px;
+  color: rgb(91, 115, 151);
+  border-radius: 3px;
+  line-height: 20px;
+}
+.dropdown-content a {
+  color: black;
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-content a:hover {
+  background-color: #999;
+  color: #ffffff;
+  border-radius: 2px;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown:hover .dropbtn {
+  text-decoration: none;
+  color: #999;
+  font-weight: 500;
+  background-color: rgb(255, 255, 255);
+  width: 120px;
+  height: 15px;
+  border-radius: 3px;
+}
+
+/* ---------------------dark theme change start--------------- */
+label {
+  position: absolute;
+  width: 54px;
+  height: 27px;
+  right: 20px;
+  border: 2px solid;
+  border-radius: 20px;
+  transition: 0.8s;
+}
+label:before {
+  position: absolute;
+  content: "";
+  width: 20px;
+  height: 19.5px;
+  border: 2px solid;
+  border-radius: 50%;
+  cursor: pointer;
+  background: #000;
+  transition: 0.8s;
+}
+label.active:before {
+  left: 24px;
+  background: #03a9f4;
+  transition: 0.8s;
+}
+body.night {
+  background: #000;
+  color: #03a0f4;
+  transition: 0.8s;
+}
+
+/* --------------time tracker------------------ */
+.addproject {
+  width: 79%;
+  height: 100px;
+  display: flex;
+  justify-content: space-evenly;
+  position: absolute;
+  top: 16%;
+  left: 20%;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+    rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+  padding-top: 20px;
+}
+.addproject input {
+  height: 60px;
+  width: 580px;
+  padding-left: 20px;
+  border: none;
+  font-size: medium;
+}
+.addproject input:hover {
+  border: 1px solid gray;
+  transition: all 0.6s;
+}
+.addproject .project {
+  display: flex;
+  width: 100px;
+  justify-content: space-between;
+  padding-top: 17px;
+  border: none;
+  cursor: pointer;
+}
+.addproject p {
+  color: #03a9f4;
+  font-size: 20px;
+  font-weight: bold;
+}
+.addproject .tag {
+  width: 38px;
+  padding-top: 8px;
+  border: none;
+  margin-left: 20px;
+}
+.addproject .dollar p {
+  width: 80px;
+  height: 80px;
+  font-size: 40px;
+  font-weight: 500;
+  border: 1px solid black;
+  padding-top: 11px;
+  border: none;
+  color: rgb(153, 153, 153);
+  cursor: pointer;
+}
+.addproject .dollar {
+  margin-left: 50px;
+}
+.addproject .timer {
+  font-size: 28px;
+  width: 140px;
+  padding-top: 17px;
+  border: none;
+  display: flex;
+}
+.addproject .toggle {
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+.addproject .toggle.active {
+  transform: scale(0.9);
+}
+
+.addproject .start {
+  padding-top: 8px;
+  border: none;
+}
+.addproject button:hover {
+  background: #065f8f;
+  color: white;
+}
+
+.addproject button {
+  width: 80px;
+  height: 50px;
+  background: #03a9f4;
+  border: none;
+}
+.addproject .twologo {
+  padding-right: 40px;
+  padding-top: 17px;
+  border: none;
+}
+
+/* ---------------This week---------------- */
+.thisweek {
+  width: 79%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 35%;
+  left: 20%;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+    rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+  padding-top: 20px;
+  padding-left: 14px;
+  padding-right: 14px;
+  background: #e4eaee;
+}
+
+/* -----------------details--------------------- */
+.details {
+  width: 79%;
+  height: 100px;
+  display: flex;
+  justify-content: space-evenly;
+  position: absolute;
+  top: 41.5%;
+  left: 20%;
+  padding-top: 20px;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 5px 1px,
+    rgba(9, 30, 66, 0.25) 0px 10px 1px 1px;
+}
+.details .name {
+  padding-top: 13px;
+}
+.details .name #desc {
+  height: 28px;
+  width: 200px;
+  padding-left: 20px;
+  font-size: medium;
+  color: #03a9f4;
+  border: none;
+}
+
+.details .project {
+  display: flex;
+  width: 100px;
+  justify-content: space-between;
+  padding-top: 17px;
+  border: none;
+}
+.details .p {
+  color: #03a9f4;
+  font-size: 20px;
+  font-weight: bold;
+}
+.details .dollar p {
+  width: 80px;
+  height: 80px;
+  font-size: 40px;
+  font-weight: 500;
+  border: 1px solid black;
+  padding-top: 11px;
+  border: none;
+  color: rgb(153, 153, 153);
+  cursor: pointer;
+}
+
+.details .tag {
+  width: 38px;
+  padding-top: 8px;
+  border: none;
+}
+.details .calender {
+  width: 38px;
+  padding-top: 8px;
+  border: none;
+}
+.details .time {
+  padding-top: 16px;
+}
+.details .time #counttime {
+  height: 40px;
+  width: 80px;
+  font-size: 26px;
+  border: none;
+}
+.details .play {
+  width: 30px;
+  padding-top: 8px;
+  border: none;
+}
+.details .menubtn {
+  width: 13px;
+  height: 50px;
+  padding-top: 8px;
+  border: none;
+}
+
+/* ------------delete button------------ */
+
+.details .menubtn ul li .delete {
+  background-color: black;
+  color: white;
+  width: 100px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 25px;
+  list-style: none;
+  opacity: 0.6;
+  cursor: pointer;
+  text-align: center;
+}
+.details .menubtn ul li {
+  display: none;
+}
+.details .menubtn ul li:hover {
+  background: red;
+  color: #fff;
+  opacity: 1;
+  transform: scale(1.2);
+  z-index: 2;
+}
+.details .menubtn:hover ul > li {
+  display: block;
+}
+.details .delete {
+  width: 100px;
+  height: 50px;
+}
+
+.small-sidebar {
+  width: 5%;
+}
+.small-sidebar a p {
+  display: none;
+}
+.small-sidebar h3 {
+  display: none;
+}
+.small-sidebar hr {
+  width: 50%;
+  margin-bottom: 25px;
+}
+.small-sidebar a span {
+  display: none;
+}
