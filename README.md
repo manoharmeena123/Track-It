@@ -34,7 +34,7 @@ some snapshot of our website
 
 - [Ashwin Murugarajan](https://www.linkedin.com/in/ashwin-385a86166)
 - [Ejajul Ansari](https://www.linkedin.com/in/ejajul-ansari-39168b242/)
-- [please add your name]()
+- [Manohar Meena](https://www.linkedin.com/in/manohar-meena-1a132221b)
 - [please add your name]()
 - [please add your name]()
 ---
