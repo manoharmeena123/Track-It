@@ -1,8 +1,8 @@
 let navbar = () => {
     return `
     <div class="left">
-        <img class="menu" src="./images/menu.png" alt="">
-        <img id="logo" src="./images/WhatsApp_Image_2023-02-22_at_11.53.45-removebg-preview.png" alt="">
+        <img class="menu" src="../images/menu.png" alt="">
+        <img id="logo" src="../images/WhatsApp_Image_2023-02-22_at_11.53.45-removebg-preview.png" alt="">
     </div>
     <div class="right">
         <div class="name"> 
