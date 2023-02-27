@@ -57,8 +57,8 @@ First, you have to have to go to the `Home Page`. There you have to click on the
 - `MongoDB` 
 
 ----
-Frontend link :https://jovial-biscuit-ca94fe.netlify.app/
-Backend link  :https://calm-colt-uniform.cyclic.app
+- `Frontend link` :https://jovial-biscuit-ca94fe.netlify.app/
+- `Backend link`  :https://calm-colt-uniform.cyclic.app
 ----
 ![Screenshot (53)](https://user-images.githubusercontent.com/108083768/221502755-1ae9d9a1-070a-4fc2-9d89-a237bfe3ad4b.png)
 
