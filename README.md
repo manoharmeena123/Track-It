@@ -25,8 +25,8 @@ This project is deployed on netlify here - [Track IT](https://jovial-biscuit-ca9
 - [Ashwin Murugarajan](https://www.linkedin.com/in/ashwin-385a86166)
 - [Ejajul Ansari](https://www.linkedin.com/in/ejajul-ansari-39168b242/)
 - [Manohar Meena](https://www.linkedin.com/in/manohar-meena-1a132221b)
-- [Ananya Kumary]()
-- [Anandhu P A]()
+- [Ananya Kumary](https://www.linkedin.com/in/ananya-kumari-singh-b06564248/)
+- [Anandhu P A](https://www.linkedin.com/in/anandhu-p-a-953a30231/)
 ---
 
 ### Pages & Features 👇
@@ -67,3 +67,6 @@ First, you have to have to go to the `Home Page`. There you have to click on the
 ![Screenshot (56)](https://user-images.githubusercontent.com/108083768/221502846-4303077b-fc42-4065-a1fb-874b6ff49117.png)
 
 ![Screenshot (57)](https://user-images.githubusercontent.com/108083768/221502876-c329c2e9-95d5-483e-b66d-113e8877e05d.png)
+
+
+Thanks you for Checking our Project
