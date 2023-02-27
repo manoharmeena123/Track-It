@@ -3,16 +3,16 @@ const { TeamModel } = require("../models/team.model");
 const teamRouter = express.Router();
 
 
-teamRouter.get("/", async (req,res)=>{
+teamRouter.get("/fetch", async (req,res)=>{
     try {
         let data = await TeamModel.find();
         res.send(data);
     } catch (error) {
-        res.send("Error while getting data")
+        res.send("Error while getting data");
     }
 })
 
-teamRouter.post("/", async (req,res)=>{
+teamRouter.post("/add", async (req,res)=>{
     let payload = req.body;
 
     try {
@@ -20,12 +20,12 @@ teamRouter.post("/", async (req,res)=>{
         await data.save();
         res.send("Added");
     } catch (error) {
-        res.send("Error while getting data")
+        res.send("Error while getting data");
     }
 });
 
 
-teamRouter.patch("/", async (req,res)=>{
+teamRouter.patch("/update", async (req,res)=>{
     let {_id} = req.body;
     let payload = req.body;
 
@@ -38,7 +38,7 @@ teamRouter.patch("/", async (req,res)=>{
     }
 });
 
-teamRouter.delete("/", async (req,res)=>{
+teamRouter.delete("/delete", async (req,res)=>{
     let {_id} = req.body;
 
     try {

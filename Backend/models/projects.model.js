@@ -11,7 +11,7 @@ const projectSchema  = mongoose.Schema({
     // timeTracked : {type:Number},
     // money : {type:Number},
     star : {type:Boolean,default:false},
-    access : {type:String, enum:["public","private"],default:"public"},
+    access : {type:String, enum:["Public","Private"],default:"Public"},
 
     
 
