@@ -15,7 +15,7 @@
     <div class="Sign_Up_Contianer">
         <!-- Navbar -->
         <div class="Sign_Up_Navbar">
-            <a href=""><img width="100px" src="../image/logo.jpg" alt="logo"></a>
+            <a href="./index.html"><img width="100px" src="../image/logo.jpg" alt="logo"></a>
             <a href="login.html" class="Sign_Up_Login">Log In</a>
         </div>
         <!-- Get Sarted -->
@@ -53,9 +53,9 @@
 
             <!-- google button -->
             <div class="Sign_Up_Google_Button">
-                <a href="https://github.com/login/oauth/authorize?client_id=14e72f7c4f49d818f585" class="Sign_Up_Google">
+                <a href="https://calm-colt-uniform.cyclic.app/auth/google" class="Sign_Up_Google">
                     <img src="https://clockify.me/assets/ui-icons/icon-google.svg" alt="Google">
-                    <span class="Sign_Up_Google_Continue">Continue with Github </span> </a>
+                    <span class="Sign_Up_Google_Continue">Continue with Google </span> </a>
             </div>
 
         </div>
@@ -90,7 +90,7 @@
       //  arr.push(userObj)
   // console.log(arr)
         let register_request = await fetch(
-          "http://localhost:4500/user/otp",
+          "https://calm-colt-uniform.cyclic.app/user/otp",
           {
             method: "POST",
             headers: {

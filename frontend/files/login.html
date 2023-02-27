@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link href= "../css//login.css" rel="stylesheet">
+    <link href= "../css/login.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 </head>
@@ -16,7 +16,7 @@
 
             <!-- Navbar containing company logo and sign-up link -->
             <div class="container__navbar">
-                <a href="home.html"><img width="100px" src="../image/logo.jpg"></a>
+                <a href="./index.html"><img width="100px" src="../image/logo.jpg"></a>
                 <div><p>Don't have an account? <a href="singup.html">Sign Up</a></p></div>    
             </div>
 
@@ -115,7 +115,7 @@ async function func(event) {
 
 
 
-    let register_request = await fetch("http://localhost:4500/user/login", {
+    let register_request = await fetch("https://calm-colt-uniform.cyclic.app/user/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -129,8 +129,9 @@ async function func(event) {
         if (data.msg == "Login Successfully") {
           alert(data.msg)
           // console.log(data)
-          localStorage.setItem("user", data.id);
-          window.location.href = "../timetracker.html"
+          localStorage.setItem("user", data.token);
+          localStorage.setItem("email", email);
+          window.location.href = "./timetracker.html"
         } else {
           alert(data.msg)
           window.location.href = "./login.html"

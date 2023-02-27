@@ -1,0 +1,124 @@
+
+* {
+    font-family: Roboto;
+  }
+  #navbar {
+    display: flex;
+    width: 85%;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbarLeft{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    font-size: 13px;
+    color: #5a6b7b;
+    padding-left: 0;
+}
+.navbarLeft > li {
+    padding-right: 40px;
+}
+.navbarLeft img {
+    max-width: 100%;
+    height: auto;
+}
+.navbarLeft a{
+      color: #5a6b7b;
+      text-decoration: none;
+
+  }
+  .navbarLeft a:hover {
+    color: #03a9f5;
+  }
+  .navbarRight {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    font-size: 13px;
+    color: #5a6b7b;
+  }
+  #login{
+    padding-right: 40px;
+    text-decoration: none;
+    color: #5a6b7b;
+  }
+  #login:hover{
+    color: #03a9f5;
+  }
+  .navbarRight button{
+    border-radius: 4px;
+    background: none;
+    border: 1px solid #03A9F4;
+    color: #03A9F4;
+    width: 140px;
+    height: 40px;
+    font-size: 0.9rem;
+  }
+  .navbarRight button:hover{
+    background-color: #03A9F4;
+    color: white;
+    cursor: pointer;
+  }
+  #mobileMenuOpen{
+    font-size: 30px;
+    display: none;
+}
+#mobileMenuClose{
+    font-size: 30px;
+    display: none;
+
+  }
+  #mobNavbar {
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    list-style: none;
+    font-size: 13px;
+    color: #5a6b7b;
+    padding-left: 0;
+    margin: auto;
+    gap: 1rem;
+    margin-bottom: 15px;
+}
+#mobNavbar a{
+    color: #5a6b7b;
+    text-decoration: none;
+
+}
+#mobNavbar a:hover{
+    color: #03a9f5;
+}
+#mobNavbar button{
+    border-radius: 4px;
+    background: none;
+    border: 1px solid #03A9F4;
+    color: #03A9F4;
+    width: 140px;
+    height: 40px;
+    font-size: 0.9rem;
+  }
+  #mobNavbar button:hover{
+    background-color: #03A9F4;
+    color: white;
+    cursor: pointer;
+  }
+
+  @media all and (min-width:200px) and (max-width:1010px){
+    .navbarLeft li:not(:first-child){
+        display: none;
+    }
+    .navbarRight{
+        display: none;
+    }
+    #navbar{
+        width: 95%;
+    }
+    #mobileMenuOpen{
+        display: flex;
+    }
+  }
