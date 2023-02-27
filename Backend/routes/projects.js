@@ -1,9 +1,9 @@
 const express = require("express");
 const { ProjectModel } = require("../models/projects.model");
-const ProjectRouter =express.Router();
+const ProjectRouter = express.Router();
 
 //get all projects
-ProjectRouter.get("/",async(req,res)=>{
+ProjectRouter.get("/fetch",async(req,res)=>{
     let allProjects = await ProjectModel.find();
     res.send(allProjects);
 })
@@ -24,7 +24,7 @@ ProjectRouter.get("/:id",async(req,res)=>{
 
 
 //post 
-ProjectRouter.post("/",async(req,res)=>{
+ProjectRouter.post("/add",async(req,res)=>{
    let {projectName,clientId}=req.body;
    if(!projectName || !clientId){res.status(422).json({err:"fill all the nescessary entries"})}
    else{

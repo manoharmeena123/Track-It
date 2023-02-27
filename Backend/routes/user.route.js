@@ -93,7 +93,7 @@ try {
 } catch (error) {
    
     console.log(error)
-    res.json({"msg":"Login failed Error in try"})
+    res.json({"msg":"Login failed Error in try"});
 }   
  })
 
