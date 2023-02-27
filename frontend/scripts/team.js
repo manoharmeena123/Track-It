@@ -1,4 +1,3 @@
-
 const baseUrl = "https://calm-colt-uniform.cyclic.app";
 let memberName = document.querySelector(".membr_name");
 let memberemail = document.querySelector(".membr_email");
@@ -27,7 +26,7 @@ async function fetch_members() {
       },
     });
     let data = await res.json();
-    console.log(data);
+    // console.log(data);
     display_members(data);
   } catch (error) {
     console.log(error);
@@ -37,17 +36,20 @@ async function fetch_members() {
 fetch_members();
 
 async function add_Member(obj) {
+  console.log(obj)
   try {
-    let ressp = await fetch(`https://calm-colt-uniform.cyclic.app/team`, {
+    let ressp = await fetch(`https://calm-colt-uniform.cyclic.app/team/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        authorization: localStorage.getItem("user"),
+        "authorization": localStorage.getItem("user"),
       },
       body: JSON.stringify(obj),
     });
-    console.log(await ressp.json());
+
     let res = await ressp.json();
+    console.log(res);
+    
   } catch (error) {
     console.log(error);
   }
@@ -58,10 +60,10 @@ function display_members(data) {
     .map((elem) => {
       return `
         <div class="client_child_content" data-user-id="${elem._id}>
-                        <div class="membr_name">${elem.name}</div>
+                        <div class="membr_name">${elem.name||"annaya"}</div>
                         <div class="membr_email">${elem.email}</div>
                         <div class="hourlyrate_div">
-                            <input type="text" name="hourlyRate" value="${elem.billableRate}" class="">
+                            <input type="text" name="hourlyRate" value="${elem.billableRate||0}" class="">
                             <div class="changeRate" onclick="changeRate()"><a class="">Change</a>
                             </div>    
                         </div>
