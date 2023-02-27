@@ -3,10 +3,12 @@ body {
 }
 
 #main-container {
-    width: 95%;
-    height: fit-content;
+    width: 80%;
     margin: auto;
-}
+    padding-top: 100px;
+    margin-left: 260px;
+    height: fit-content;
+};
 
 .top-section {
     width: 96%;
@@ -49,6 +51,7 @@ body {
 /* Bar Graph Section */
 #bar-chart {
     border: 2px solid #888888;
+    margin-top: 20px;
 }
 
 .bar-chart-top-section {
@@ -143,14 +146,29 @@ body {
 }
 
 
+#append + .dataShow {
+    width: 100%;
+    margin: auto;
+    display: block;
+    height: fit-content;
+}
+
+.dataShow > .data-box {
+    display: block;
+
+}
+
+
+
 
 
 /* Weekly Section */
 #weeklySection {
     width: 100%;
-    height: 500px;
+    height: fit-content;
     border: 1px solid #888888;
     display: none;
+    margin-top: 20px;
 }
 
 .give-space-for-project-name {
@@ -159,4 +177,22 @@ body {
 
 .font-size-small {
     font-size: 15px !important;
+}
+
+.dataShowforDetailedSection {
+    display: block;
+    width: 100%;
+    /* overflow-y: scroll; */
+}
+
+.data-box-detailed {
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+    width: 100%;
+    border-bottom: 1px solid #888888;
+}
+
+.data-box-detailed > p {
+    margin: 10px;
 }
