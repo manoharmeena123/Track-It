@@ -65,7 +65,7 @@ First, you have to have to go to the `Home Page`. There you have to click on the
 - `MongoDB` 
 
 ----
-![](https://imgur.com/DXDL4SC)
+![](https://imgur.com/a/02TNr1P)
 ![](https://imgur.com/XWtJMqf)
 ![](https://imgur.com/CKosOyk)
 ![](https://imgur.com/HF3lfNY)
