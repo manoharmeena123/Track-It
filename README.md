@@ -66,7 +66,7 @@ First, you have to have to go to the `Home Page`. There you have to click on the
 
 
 ![](https://imgur.com/DXDL4SC)
-![](https://ibb.co/b3Rg4t2)
+![](https://imgur.com/XWtJMqf)
 ![](https://ibb.co/ZKQtdXz)
 ![](https://ibb.co/QvMS1Ks)
 ![](https://ibb.co/Fzq4zWN)
