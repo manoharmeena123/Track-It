@@ -25,7 +25,7 @@ This project is deployed on netlify here - [Track IT](https://jovial-biscuit-ca9
 - [Ashwin Murugarajan](https://www.linkedin.com/in/ashwin-385a86166)
 - [Ejajul Ansari](https://www.linkedin.com/in/ejajul-ansari-39168b242/)
 - [Manohar Meena](https://www.linkedin.com/in/manohar-meena-1a132221b)
-- [Ananya Kumary](https://www.linkedin.com/in/ananya-kumari-singh-b06564248/)
+- [Ananya Kumari Singh](https://www.linkedin.com/in/ananya-kumari-singh-b06564248/)
 - [Anandhu P A](https://www.linkedin.com/in/anandhu-p-a-953a30231/)
 ---
 
