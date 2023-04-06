@@ -1,22 +1,26 @@
 # Track IT
-Time tracking software used by millions. TrackIt is a time tracker and timesheet app that lets you track work hours across projects.
+TrackIt is a user-friendly time tracker and timesheet application. The app is designed to help users keep track of their work hours efficiently and effectively, ensuring that they can stay on top of their schedules and maximize productivity.
+
+With TrackIt, users can easily track their work hours across multiple projects, providing them with a comprehensive view of their time management.
+
+TrackIt is the perfect solution for individuals and teams who need to monitor their time and manage their projects efficiently. It is packed with features that allow users to generate detailed reports, making it easy to keep track of progress and stay on top of deadlines.
+
 
 ## Deployment
 
-This project is deployed on netlify here - [Track IT](https://jovial-biscuit-ca94fe.netlify.app/)
+----
+- `Frontend link` :https://jovial-biscuit-ca94fe.netlify.app/
+- `Backend link`  :https://calm-colt-uniform.cyclic.app
+----
 
+### Technology we used....🔧
 
-
----
-
-# Welcome 👋
-
----
-
-## About this project: 🙌
-
-
-
+- `HTML` 
+- `CSS` 
+- `JavaScript`
+- `Node JS`
+- `Express JS`
+- `MongoDB` 
 
 ---
 
@@ -47,19 +51,9 @@ First, you have to have to go to the `Home Page`. There you have to click on the
 
 ---
 
-### Technology we used....🔧
 
-- `HTML` 
-- `CSS` 
-- `JavaScript`
-- `Node JS`
-- `Express JS`
-- `MongoDB` 
 
-----
-- `Frontend link` :https://jovial-biscuit-ca94fe.netlify.app/
-- `Backend link`  :https://calm-colt-uniform.cyclic.app
-----
+
 ![Screenshot (53)](https://user-images.githubusercontent.com/108083768/221502755-1ae9d9a1-070a-4fc2-9d89-a237bfe3ad4b.png)
 
 ![Screenshot (54)](https://user-images.githubusercontent.com/108083768/221502793-c05780b7-51be-4f5c-a775-fbaf0ea5f543.png)
