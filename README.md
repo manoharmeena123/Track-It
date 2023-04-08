@@ -25,10 +25,9 @@ TrackIt is the perfect solution for individuals and teams who need to monitor th
 ---
 
 ## Our Team Members ❤️
-
+- [Manohar Meena :Team Leader](https://www.linkedin.com/in/manohar-meena-1a132221b)
 - [Ashwin Murugarajan](https://www.linkedin.com/in/ashwin-385a86166)
 - [Ejajul Ansari](https://www.linkedin.com/in/ejajul-ansari-39168b242/)
-- [Manohar Meena :Team Leader](https://www.linkedin.com/in/manohar-meena-1a132221b)
 - [Ananya Kumari Singh](https://www.linkedin.com/in/ananya-kumari-singh-b06564248/)
 - [Anandhu P A](https://www.linkedin.com/in/anandhu-p-a-953a30231/)
 ---
