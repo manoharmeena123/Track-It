@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="../css/signup.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="Sign_Up">
+      <div class="Sign_Up_Contianer">
+        <!-- Navbar -->
+        <div class="Sign_Up_Navbar">
+          <a href="login.html" class="Sign_Up_Login">Log In</a>
+        </div>
+        <!-- Get Sarted -->
+        <div class="Sign_Up_GetStarted">
+          <p class="Sign_Up_GetStarted_Get">Get started with TrackIt</p>
+          <p class="Sign_Up_GetStarted_Create">Create a free account</p>
+        </div>
+        <!--Sign Up Form -->
+        <div class="Sign_Up_Form">
+          <label class="Sign_Up_Form_SignUp">SIGNUP</label>
+          <input
+            type="text"
+            name="email"
+            id="email"
+            placeholder="Enter email"
+          />
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Choose password"
+          />
+
+          <!-- create button -->
+          <a href="#" style="text-decoration: none"
+            ><button class="Sign_UP_Create_Button" id="signup">
+              CREATE FREE ACCOUNT
+            </button></a
+          >
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  let flag1 = false;
+  let flag2 = false;
+
+  const Register_btn = document.getElementById("signup");
+  Register_btn.addEventListener("click", RegisterFunction);
+
+  async function RegisterFunction(event) {
+    const docs = document.querySelector("#email").value;
+    const pass = document.querySelector("#password").value;
+
+    if (docs == "") {
+      alert("Please Provide your Email");
+      return;
+    } else if (!docs.includes("@")) {
+      alert("Please Provide your vaild Email");
+      return;
+    } else if (pass == "") {
+      alert("Please Provide your Password");
+      return;
+    } else if (pass.length <= 4) {
+      alert("Password Length should be more then 4");
+      return;
+    }
+
+    try {
+      Register_btn.disabled = true;
+      Register_btn.style.backgroundColor = "darkblue";
+
+      Register_btn.innerHTML = `Loading <div class="dot"></div>`;
+
+      event.preventDefault();
+      let email = document.querySelector("#email").value;
+      let password = document.querySelector("#password").value;
+
+      let userObj = {
+        email,
+        password,
+      };
+      let flag = true;
+      let status = null;
+
+      let register_request = await fetch("https://faithful-deer-lingerie.cyclic.app/user/otp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userObj),
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          if (res.msg == "User already present") {
+            alert("Your account is already registered");
+            window.location.href = "./login.html";
+            flag = false;
+            return;
+          } else {
+            Register_btn.innerHTML = `Create your Account`;
+
+            localStorage.setItem("user", JSON.stringify(userObj));
+            localStorage.setItem("back", JSON.stringify(res));
+
+            window.location.href = "./otp.html";
+          }
+        });
+    } catch (error) {
+      alert("Something went wrong. Please try again later.");
+    }
+  }
+</script>

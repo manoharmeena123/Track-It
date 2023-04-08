@@ -2,7 +2,8 @@ body {
     font-family: 'Roboto', sans-serif;
     padding: 0;
     margin: 0;
-    background-color: #F2F6F8;  
+    background-color: #F2F6F8;
+    overflow: hidden;
 }
 
 .container {
@@ -25,21 +26,22 @@ body {
     width: 34%;
     height: 100%;
     text-align: center;
-    /* background: linear-gradient(180deg,#673ab7,#3f51b5,#00bcd4,#3f51b5); */
     animation: animate-grad infinite 28s;
     color: white;
 }
 
 @keyframes animate-grad {
-        0% {
-            background-color: #673ab7
-        }
-        50% {
-            background-color: #3f51b5;
-        }
-        100% {
-            background-color: #00bcd4;
-        }
+    0% {
+        background-color: #673ab7
+    }
+
+    50% {
+        background-color: #3f51b5;
+    }
+
+    100% {
+        background-color: #00bcd4;
+    }
 }
 
 .container__navbar {
@@ -50,7 +52,7 @@ body {
     width: 95%;
 }
 
-.container__navbar > div {
+.container__navbar>div {
     float: right;
     font-size: 14px;
     color: #999999;
@@ -66,48 +68,29 @@ body {
 }
 
 .container__loginCard {
-    position: absolute; 
+    position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
-    height: 400px;
+    transform: translate(-50%, -50%);
+    height: fit-content;
     width: 420px;
-    box-shadow: 0 0 20px rgba(0,0,0,.1);
+    padding: 50px 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .1);
     background-color: white;
 }
 
-.loginCard__checkbox {
-    margin-left: 20px;
-    display: flex;
-    width: 50%;
-    align-items: center;
-}
 
-.loginCard__checkbox label {
-    font-size: 14px;
-    margin-left: 5px;
-    color: #333333;
-    cursor: pointer;
-}
 
-.loginCard__checkbox > input {
-    height: 15px;
-    width: 15px;
-    border-radius: 2px;
-    cursor: pointer;
-}
-
-.loginCard__checkbox input:checked {
-    background-color: #03A9F4;
-}
 
 .container__loginCard h3 {
-    padding-left: 25px;
-    padding-top: 10px;
+    font-size: 30px;
+    text-align: center;
     color: #4C4C4C;
+    font-weight: 500;
 }
 
-.container__loginCard > input {
+.container__loginCard>input {
     height: 30px;
     display: block;
     width: 85%;
@@ -136,9 +119,9 @@ body {
     text-decoration: underline;
 }
 
-.loginBtn-link{
+.loginBtn-link {
     width: 100%;
-    margin: 15px auto;    
+    margin: 15px auto;
 }
 
 .loginCard__loginBtn {
@@ -160,14 +143,6 @@ body {
     background-color: #038FCE;
 }
 
-/* .loginCard__loginBtn:disabled {
-    background-color: #7bc4e6;
-    cursor: not-allowed;
-} */
-
- /* .loginCard__loginBtn:enabled {
-    cursor: pointer;
-}  */
 
 .loginCard__line {
     display: flex;
@@ -175,7 +150,8 @@ body {
     width: 100%;
 }
 
-.loginCard__leftLine, .loginCard__rightLine {
+.loginCard__leftLine,
+.loginCard__rightLine {
     height: 1px;
     width: 40%;
     background-color: #C6D2D9;
@@ -218,7 +194,7 @@ body {
 .container__privacy {
     width: 100%;
     background-color: #F2F6F8;
-    margin-top: 60px ;
+    margin-top: 60px;
 }
 
 .container__privacy p {
@@ -256,7 +232,7 @@ body {
     margin-top: 20px;
 }
 
-.rightPart__learnMore  {
+.rightPart__learnMore {
     font-size: 12px;
     margin-top: 20px;
     margin-left: 45%;
@@ -276,33 +252,41 @@ body {
     .container__rightPart {
         clear: both;
         min-width: 100%;
-        
+
         animation: animate-grad infinite 28s;
     }
+
     @keyframes animate-grad {
         0% {
             background-color: #673ab7
         }
+
         50% {
             background-color: #3f51b5;
         }
+
         100% {
             background-color: #00bcd4;
         }
     }
+
     .container__rightPart h2 {
         font-size: 28px;
     }
+
     .container__loginCard {
         margin-left: 100px;
     }
-    .container__navbar img{
+
+    .container__navbar img {
         margin-left: 190px;
     }
+
     .container__loginCard p {
         padding-left: -110px;
     }
-    .container__navbar > div > p {
+
+    .container__navbar>div>p {
         margin-right: 100px;
     }
-} 
+}

@@ -4,6 +4,9 @@ function youtubeVideo() {
     window.location.href = "https://youtu.be/NMZhFs_b0Aw"
 }
 
+function goToSignup(){
+    window.location.href="../files/signup.html";
+  }
 
 let check = document.getElementById("check")
 let videoImg = document.getElementById("videoImg")

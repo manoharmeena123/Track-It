@@ -1,74 +1,77 @@
 const express = require("express");
-const { takeCoverage } = require("v8");
 const { TaskModel } = require("../models/tasks.model");
+const { ProjectModel } = require("../models/projects.model");
 const taskRouter = express.Router();
 
 
-taskRouter.post("/",async(req,res)=>{
-   try{
-   let {task,date,startTime,endTime,projectId,  userId , totalTimeInSec}=req.body;
-   if(!task || !date || !startTime ||!userId || !endTime || !projectId || !totalTimeInSec){
-    res.status(422).json({err:"please fill all the details"})
-   }
-   else {
-    let newTask = new TaskModel(req.body);
-    let out = await newTask.save();
-    res.send(out);
-   }
-   }
-   catch(err){
-    console.log("error | tasks | post ______________________");
-    console.log(err);
-   }
+// Get Task Data by user
+taskRouter.get("/:id", async (req, res) => {
+    let user = req.params.id;
+    try {
+        let tasks = await TaskModel.find({ user }).sort({"date": -1});
+        res.send(tasks)
+    }
+    catch (err) {
+        res.send("msg", "Something went wrong please try again");
+    }
+});
+
+
+// Add new Task
+taskRouter.post("/", async (req, res) => {
+    let { task } = req.body;
+    try {
+
+        let check = await TaskModel.find({ "task": task });
+        if (check.length == 1) {
+            res.send({ "msg": "Task already Exist" });
+            return;
+        }
+
+        let newTask = new TaskModel(req.body);
+        let out = await newTask.save();
+        res.send(out);
+    }
+    catch (err) {
+        res.send("msg", "Something went wrong please try again");
+    }
 })
 
 
 
-
-taskRouter.get("/:id",async(req,res)=>{
-let userId = req.params.id;
-
-try{
-let tasks = await TaskModel.find({userId });
-res.send(tasks)
-}
-catch(err){
-    console.log("error in get | taskrouter",err)
-}
-
- })
-
-
- taskRouter.get("/",async(req,res)=>{
-
-    try{
-        let data = await TaskModel.find();
-        res.send(data)
+taskRouter.patch("/update/:id", async (req, res) => {
+    let payload = req.body;
+    let { totalTime } = req.body;
+    let projectName = req.headers.projectname;
+    try {
+        let _id = req.params.id;
+        await TaskModel.findByIdAndUpdate(_id, payload);
+        if (projectName.length > 0) {
+            let project = await ProjectModel.findOne({ projectName: projectName });
+            project.timeTracked += totalTime;
+            await project.save();
+        }
+        res.send({ "msg": "Updated Successfully" });
+    } catch (err) {
+        res.send("msg", "Something went wrong please try again");
     }
-    catch(err){
-        console.log("error in get | taskrouter",err)
-    }
-    
-     })
-    
+});
+
+
+
+
+
+
 //delete tasks
-
-taskRouter.delete("/delete/:id",async(req,res)=>{
-    let _id = req.params.id;
-   // res.send(_id)
-    try{
-   let tasks  = await TaskModel.findOneAndDelete({_id})
-   res.send("deleted successfully")
+taskRouter.delete("/delete/:id", async (req, res) => {
+    try {
+        let _id = req.params.id;
+        await TaskModel.findByIdAndRemove(_id);
+        res.send({ "msg": "Deleted Successfully" });
+    } catch (err) {
+        res.send("msg", "Something went wrong please try again");
     }
-    catch(err){
-        console.log("error in delete | taskrouter",err)
-    }
-    
-     })
-
-// updating date adn 
+})
 
 
-
-
-module.exports = {taskRouter}
+module.exports = { taskRouter }

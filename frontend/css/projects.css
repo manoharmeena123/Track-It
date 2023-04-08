@@ -6,9 +6,11 @@ body {
   background-color: whitesmoke;
 }
 .projects_page{
-    width: 95%;
-    margin: auto;
-    margin-top: 50px;
+  width: 80%;
+  margin: auto;
+  padding-top: 100px;
+  margin-left: 260px;
+  height: fit-content;
 }
 .top-head{
     display: flex;
@@ -95,35 +97,23 @@ body {
   margin-left: 60%;
   width: 90%;
 }
-.star_icon {
-  color: #c0c0c0;
-  margin-left: 120%;
-  width: 40%;
-  cursor: pointer;
-}
-.more_icon{
-  margin-left: 60%;
-  width: 40%;
-  cursor: pointer;
-  border-right: 1px solid rgb(202, 202, 202);
-}
 
 /* !---------- POPUP PAGE CSS ------------ */
 
 .bg-model {
-  width: 100%;
+  width: fit-content;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  position: absolute;
-  top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-top: 200px;
   display: none;
+  margin-left: 500px;
+  border: 2px solid #afaeae;
+  border-radius: 10px;
+  z-index: 100;
 }
 .model-content {
   width: 500px;
   margin: auto;
+  border-radius: 20px;
   background-color: white;
   border-radius: 4px;
 } 
@@ -193,4 +183,67 @@ input {
 .public_div span{
   font-size: 15px;
   margin-top: 18px;
+}
+
+
+
+
+/* Navbar */
+
+
+#projectTitle  {
+  display: block;
+  width: 70%;
+  text-align: center;
+}
+
+#logo-img {
+  width: 50px;
+  margin-left: 50px;
+}
+
+#logo-img + span {
+  font-size: 30px;
+  color: teal;
+}
+
+select {
+  width: 94%;
+  padding: 10px;
+  color: black;
+}
+
+.body_div_head_ {
+  display: flex;
+  width: 90%;
+  justify-content: space-around;
+}
+
+.body_div_head {
+  width: 100%;
+  text-align: center;
+}
+
+.body_div_head > div {
+  padding: 0px 80px;
+  margin: 0px;
+}
+
+#deleteBox {
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+
+#deleteButton {
+  padding: 2px 10px;
+  margin: 5px 0px;
+  border: 0px;
+  background-color: #03a9f4;
+  color: white;
+  border-radius: 4px;
+}
+
+#deleteButton:hover {
+  background-color: #32beff;
 }

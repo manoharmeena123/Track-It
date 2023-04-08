@@ -4,52 +4,117 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"/>
-    <link rel="stylesheet" href="/frontend/css/team.css"/>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+    <link rel="stylesheet" href="/frontend/css/team.css" />
+    <link rel="icon" href="../images/favicon.ico" />
     <title>Team • TrackIt</title>
+
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css"
+      rel="stylesheet"
+    />
+    <!-- chartjs -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
+      integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
-    <section>
+    <!--Main Navigation-->
+    <header>
+      <!-- Sidebar -->
+      <nav
+        id="sidebarMenu"
+        class="collapse d-lg-block sidebar collapse bg-white"
+      >
+        <div class="position-sticky">
+          <div class="list-group list-group-flush mx-3 mt-4">
+            <a
+              href="../files/timetracker.html"
+              class="list-group-item list-group-item-action py-2 ripple"
+              aria-current="true"
+            >
+              <i class="fas fa-tachometer-alt fa-fw me-3"></i
+              ><span>Time Tracker</span>
+            </a>
+
+            <a
+              href="../files/reports.html"
+              class="list-group-item list-group-item-action py-2 ripple"
+              ><i class="fas fa-lock fa-fw me-3"></i><span>Reports</span></a
+            >
+            <a
+              href="../files/projects.html"
+              class="list-group-item list-group-item-action py-2 ripple"
+              ><i class="fas fa-chart-line fa-fw me-3"></i
+              ><span>Projects</span></a
+            >
+            <a
+              class="list-group-item list-group-item-action py-2 ripple active"
+            >
+              <i class="fas fa-chart-pie fa-fw me-3"></i><span>Team</span>
+            </a>
+            <a
+              href="../files/client.html"
+              class="list-group-item list-group-item-action py-2 ripple"
+              ><i class="fas fa-chart-bar fa-fw me-3"></i><span>Client</span></a
+            >
+          </div>
+        </div>
+      </nav>
+      <!-- Sidebar -->
+
+      <!-- Navbar -->
+      <nav
+        id="main-navbar"
+        class="navbar navbar-expand-lg navbar-light bg-white fixed-top"
+      >
+        <img
+          id="logo-img"
+          src="https://user-images.githubusercontent.com/112761880/230451990-f74a2292-c9f2-4228-86a4-c321187ae38d.png"
+          alt="Logo"
+        /><span>TrackIt</span>
+        <h1 id="projectTitle">Your Team Details</h1>
+      </nav>
+      <!-- Navbar -->
+    </header>
+
+    <section class="content-area" id="hideBox">
       <div class="main_div">
         <div class="child_div">
           <div class="team">Team</div>
           <div class="main-content-div">
-            <div class="content_div_header">
-              <ul class="nav nav-tabs">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="">MEMBERS</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="">GROUPS</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link">REMINDERS</a>
-                </li>
-              </ul>
-            </div>
             <div class="content_body">
               <!-- Members -->
               <div class="content_div_btm">
                 <div class="cntnt_div_child">
-                  <div class="content_left">
-                    <div class="dropdown">
-                      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Show all</button>
-                      <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Show all</a></li>
-                        <li>
-                          <a class="dropdown-item" href="#">Show active</a>
-                        </li>
-                        <li>
-                          <a class="dropdown-item" href="#">Show inactive</a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="search_member">
-                      <input type="text" placeholder="Search by name or email"/>
-                    </div>
-                  </div>
+                  <div class="content_left"></div>
                   <div class="add_member">
                     <button onclick="addMember()">ADD NEW MEMBER</button>
                   </div>
@@ -68,34 +133,10 @@
                     </div>
                   </div>
                   <div class="client_parent_content">
-                    <!-- <div class="client_child_content">
-                        <div class="membr_name">Ananya</div>
-                        <div class="membr_email">ananya@gmail.com</div>
-                        <div class="hourlyrate_div">
-                            <input type="text" name="hourlyRate" spellcheck="false" inputnumber="" autocomplete="off" readonly="" class="">
-                            <div class="changeRate" onclick="changeRate()"><a class="">Change</a>
-                            </div>    
-                        </div>
-                        <div class="role_div" onclick="changeRole()"><span class="material-symbols-outlined">add_circle</span><a class="">Role</a>
-                        </div> 
-                        <div class="more_icon">
-                            <span class="material-symbols-outlined more_vert">more_vert</span>
-                        </div>
-                    </div> -->
+                    <!-- Data Will Be appended Here -->
                   </div>
                 </div>
               </div>
-
-              <!-- Groups
-                <div class="content_div_btm">
-                    <div class="cntnt_div_child">
-                    </div>
-                </div>
-                ------------- Reminders --------------
-                <div class="content_div_btm">
-                    <div class="cntnt_div_child">
-                    </div>
-                </div> -->
             </div>
           </div>
         </div>
@@ -103,61 +144,40 @@
     </section>
 
     <!-- !-------------------------------- ADD MEMBER POPUP PAGE ------------------------------ -->
-    <section>        
-      <div class="bg-model-add">
-          <div class="model-content">
-              <div class="top_part">
-                  <div class="header">Create new team member</div>
-                  <div class="close" onclick="closeMember()"><span class="cross material-symbols-outlined">close</span></div>
-              </div>
-              <hr>
-              <form id="addMember_form" action="">
-                  <div class="project_details">
-                    <label for="">Name</label>
-                    <input type="text" class="mrgn-btm membr_name" placeholder="Enter member's name">
-                    <br>
-                    <label for="">Email</label>
-                    <input type="email" class="mrgn-btm membr_email" placeholder="Enter email"><br>
-                    <label for="">Billable hourly rate</label>
-                    <input type="number" placeholder="Enter the billable rate" id="bill_rate">
-                  </div>
-                  <hr>
-                  <div class="button_div">
-                      <button class="close_bt" onclick="closeMember()">Cancel</button>
-                      <input class="submit_bt" value="Save" type="submit">
-                  </div>
-              </form>
-          </div>
-      </div>
-  </section>
-
-
-
-    <!-- !--------------------------------------------- RATE POPUP PAGE ------------------------------------------------ -->
     <section>
-      <div class="bg-model">
+      <div class="bg-model-add">
         <div class="model-content">
           <div class="top_part">
-            <div class="header">Create new project</div>
-            <div class="close" onclick="closeRate()">
+            <div class="header">Create new team member</div>
+            <div class="close" onclick="closeMember()">
               <span class="cross material-symbols-outlined">close</span>
             </div>
           </div>
-          <hr/>
-          <div class="content-div">
-            We'll apply this rate to all entries made by Ananya kumari Singh,
-            except on projects that have their own rate.
-          </div>
-          <form action="">
+          <hr />
+          <form id="addMember_form" action="">
             <div class="project_details">
-              <div class="new_nill_rate_cntn">
-                What is the new billable rate
-              </div>
-              <input type="text" class="mrgn-btm" placeholder="What is the new billable rate"/>
+              <label for="">Name</label>
+              <input
+                type="text"
+                class="mrgn-btm membr_name"
+                placeholder="Enter member's name"
+              />
+              <br />
+              <label for="">Email</label>
+              <input
+                type="email"
+                class="mrgn-btm membr_email"
+                placeholder="Enter email"
+              /><br />
+              <label for="">Billable hourly rate in (USD)</label>
+              <input
+                type="number"
+                placeholder="Enter the billable rate"
+                id="bill_rate"
+              />
             </div>
-            <hr/>
+            <hr />
             <div class="button_div">
-              <button class="close_bt" onclick="closeRate()">Cancel</button>
               <input class="submit_bt" value="Save" type="submit" />
             </div>
           </form>
@@ -165,9 +185,10 @@
       </div>
     </section>
 
+
     <!-- !--------------------------------------------- ROLE POPUP PAGE ------------------------------------------------ -->
     <section>
-      <div class="bg-model_role">
+      <div class="bg-model_role" id="changeRoleDiv">
         <div class="model-content">
           <div class="top_part">
             <div class="header">Create new role</div>
@@ -176,33 +197,14 @@
             </div>
           </div>
           <hr />
-          <div class="public_div">
-            <input class="owner-checkbox" type="checkbox" value="Private" />
-            <p class="owner">Owner</p>
-          </div>
-          <p class="owner_detail">Can't be removed or deactivated until ownership is transferred</p>
+          
           <div class="form_div">
-            <form action="">
-              <hr/>
-              <div class="content-div">
-                STANDARD feature <button class="upgrade_button">Upgrade</button>
-              </div>
-              <div class="manager_div">
-                <span class="checkbox material-symbols-outlined">check_box_outline_blank</span>
-                <p class="Project_manager">Project Manager</p>
-              </div>
-              <p class="manager_detail">Can edit all projects they manage and see all time on those
-                projects</p>
-              <div class="team_div">
-                <span class="checkbox material-symbols-outlined">check_box_outline_blank</span>
-                <p class="Project_manager">Team Manager</p>
-              </div>
-              <p class="manager_detail">Can see all time of users they manage and approve their
-                timesheets</p>
-              <hr/>
+            <label for="">Change or Add Role</label>
+              <input type="text" name="roleChange" id="roleChange" placeholder="Enter Role Name Here">
+              <hr />
               <div class="button_div">
                 <button class="close_bt" onclick="closeRole()">Cancel</button>
-                <input class="submit_bt" value="Save" type="submit" />
+                <input class="submit_bt" id="submitRole" value="Save" type="submit" />
               </div>
             </form>
           </div>
@@ -210,7 +212,11 @@
       </div>
     </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
     <script src="../scripts/team.js"></script>
   </body>
 </html>

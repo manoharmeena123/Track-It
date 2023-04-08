@@ -14,17 +14,14 @@
  const cors = require("cors")
 app.use(cors({
   origin:"*"
-}))
+}))             
 const {connection} = require("./confige/confige")
-const {UserModel} = require("./models/user.model")
 const {authenticate} = require("./middleware/authenticate")
 const {userRouter} = require("./routes/user.route")
-const {authorise} = require("./middleware/authorise")
-const {generateOtpRouter} = require("./routes/generateotpmail")
 const {newtokenRouter} = require("./routes/newtoken")
 app.get("/",(req,res)=>{
    console.log(req.cookies)
-   res.json("Welcome")
+   res.json("Welcome to Track it")
 
 })
 
@@ -53,9 +50,9 @@ app.use("/team",teamRouter);
  app.listen(process.env.port,async()=>{
     try {
        await connection 
-    console.log("Connected to DB")
+    console.log("Connected to DB");
     } catch (error) {
       console.log(error)
     }
-    console.log("Server on 4500")
+    console.log(`Server running on ${process.env.port}`)
  })

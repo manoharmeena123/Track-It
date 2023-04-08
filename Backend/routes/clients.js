@@ -1,62 +1,68 @@
-const express = require('express');
-const { clientModel } = require('../models/clients.model');
+const express = require("express");
+const { clientModel } = require("../models/clients.model");
 const clientRouter = express.Router();
 
+clientRouter.use(express.json());
 
-//get all clients 
-clientRouter.get("/",async(req,res)=>{
-    try{
-        let data = await clientModel.find();
+//get all clients
+clientRouter.get("/", async (req, res) => {
+    let email = req.headers.email;
+    try {
+        let data = await clientModel.find({ user: email }).sort({"create_at": -1});
         res.send(data);
-    }catch(err){console.log("err | client | get",err)}
-
-})
+    } catch (err) {
+        res.send("msg", "Something went wrong please try again");
+    }
+});
 
 //get By Id
-clientRouter.get("/:id",async(req,res)=>{
-    try{
+clientRouter.get("/:id", async (req, res) => {
+    try {
         let _id = req.params.id;
         let data = await clientModel.findById(_id);
         res.send(data);
-    }catch(err){console.log("err | client | getby ID",err)}
+    } catch (err) {
+        res.send("msg", "Something went wrong please try again");
+    }
+});
 
-})
-
-//post 
-clientRouter.post("/",async(req,res)=>{
-    try{
-        let {name, email,address,note}=req.body;
-        let clientExists = await clientModel.findOne({email});
-        if(clientExists){res.status(409).json({error:"client allready exists"})}
-        else{
-        if(!name|| !email || !address ){res.status(422).json({error:"please fill all the entries"})}
-        let newClient = new clientModel(req.body);
-        let out = await newClient.save();
-        res.send(out)
-            }
-    }catch(err){console.log("err | client | get",err)}
-
-})
+//post
+clientRouter.post("/", async (req, res) => {
+    try {
+        let { name, email, address, user } = req.body;
+        let clientExists = await clientModel.findOne({ email });
+        if (clientExists) {
+            res.status(409).json({ msg: "Client Already Exists" });
+        } else {
+            let newClient = new clientModel({ name, email, address, user });
+            await newClient.save();
+            res.send({ msg: "Client Successfully Added" });
+        }
+    } catch (err) {
+        res.send("msg", "Something went wrong please try again");
+    }
+});
 
 //delete
-clientRouter.delete("/:id",async(req,res)=>{
-    try{
+clientRouter.delete("/:id", async (req, res) => {
+    try {
         let _id = req.params.id;
-        let data = await clientModel.findByIdAndRemove(_id);
-        res.send(data);
-    }catch(err){console.log("err | client | delete ID",err)}
+        await clientModel.findByIdAndRemove(_id);
+        res.send({ "msg": "Deleted Successfully" });
+    } catch (err) {
+        res.send("msg", "Something went wrong please try again");
+    }
+});
 
-})
-
-//update 
-clientRouter.patch("/:id",async(req,res)=>{
-    try{
+//update
+clientRouter.patch("/:id", async (req, res) => {
+    try {
         let _id = req.params.id;
-        let data = await clientModel.findByIdAndUpdate(_id,req.body,{new:true});
-        res.send(data);
-    }catch(err){console.log("err | client | delete ID",err)}
+        await clientModel.findByIdAndUpdate(_id, req.body, { new: true, });
+        res.send({ "msg": "Updated Successfully" });
+    } catch (err) {
+        res.send("msg", "Something went wrong please try again");
+    }
+});
 
-})
-
-
-module.exports={clientRouter};
+module.exports = { clientRouter };

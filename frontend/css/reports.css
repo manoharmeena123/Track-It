@@ -8,7 +8,9 @@ body {
     padding-top: 100px;
     margin-left: 260px;
     height: fit-content;
-};
+}
+
+;
 
 .top-section {
     width: 96%;
@@ -108,7 +110,7 @@ body {
     margin: auto;
 }
 
-.pie-chart-top-section > p {
+.pie-chart-top-section>p {
     font-size: 25px;
 }
 
@@ -120,6 +122,7 @@ body {
     border-bottom: 1px solid #888888;
 }
 
+
 .data-box>p {
     font-size: 17px;
     color: #888888;
@@ -130,13 +133,14 @@ body {
 .data-box-title {
     background-color: #27A0F1;
 }
-.data-box-title > p {
+
+.data-box-title>p {
     color: white;
     font-weight: 600;
 }
 
 
-.pie-chart-right-section{
+.pie-chart-right-section {
     margin: auto;
 }
 
@@ -146,14 +150,14 @@ body {
 }
 
 
-#append + .dataShow {
+#append+.dataShow {
     width: 100%;
     margin: auto;
     display: block;
     height: fit-content;
 }
 
-.dataShow > .data-box {
+.dataShow>.data-box {
     display: block;
 
 }
@@ -193,6 +197,87 @@ body {
     border-bottom: 1px solid #888888;
 }
 
-.data-box-detailed > p {
+.data-box-detailed>p {
     margin: 10px;
+}
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,900;1,900&display=swap');
+
+* {
+
+    font-family: 'Roboto', sans-serif;
+
+}
+
+:root {
+
+    --grey: #f3f7f8;
+    --dark-grey: #e4ebef;
+}
+
+#body {
+    margin: 0px;
+    background-color: var(--grey);
+}
+
+@media (min-width: 991.98px) {
+    main {
+        padding-left: 240px;
+
+    }
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding: 58px 0 0;
+    /* Height of navbar */
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+    width: 240px;
+    z-index: 600;
+}
+
+@media (max-width: 991.98px) {
+    .sidebar {
+        width: 100%;
+    }
+}
+
+.sidebar .active {
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+}
+
+.sidebar-sticky {
+    position: relative;
+    top: 0;
+    height: calc(100vh - 48px);
+    padding-top: 0.5rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    /* Scrollable contents if viewport is shorter than content. */
+}
+
+
+
+
+#projectTitle {
+    display: block;
+    width: 70%;
+    text-align: center;
+}
+
+#logo-img {
+    width: 50px;
+    margin-left: 50px;
+}
+
+#logo-img + span {
+    font-size: 30px;
+    color: teal;
 }
