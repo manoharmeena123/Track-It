@@ -9,7 +9,7 @@ TrackIt is the perfect solution for individuals and teams who need to monitor th
 ## Deployment
 
 ----
-- `Frontend link` :https://jovial-biscuit-ca94fe.netlify.app/
+- `Frontend link` :https://trackit-time-tracker.netlify.app/
 - `Backend link`  :https://faithful-deer-lingerie.cyclic.app/
 ----
 
