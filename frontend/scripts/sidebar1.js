@@ -19,7 +19,6 @@ let sidebar1=()=>{
   <a href="../files/client.html"><img src="https://app.clockify.me/assets/nav-icons/clients.svg" alt=""><span>CLIENT</span></a>
 
 
-  <a href="#"><img src="https://app.clockify.me/assets/nav-icons/settings.svg" alt=""><span>SETTING</span></a>
 
 </div>
   `

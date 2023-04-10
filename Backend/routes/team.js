@@ -3,51 +3,58 @@ const { TeamModel } = require("../models/team.model");
 const teamRouter = express.Router();
 
 
-teamRouter.get("/fetch", async (req,res)=>{
+teamRouter.get("/", async (req, res) => {
+    let email = req.headers.email;
     try {
-        let data = await TeamModel.find();
+        let data = await TeamModel.find({ "user": email }).sort({"created_at": -1});
         res.send(data);
     } catch (error) {
-        res.send("Error while getting data");
+        res.send({"msg": "Something went wrong please try again"});
     }
-})
+});
 
-teamRouter.post("/add", async (req,res)=>{
-    let payload = req.body;
+
+
+teamRouter.post("/", async (req, res) => {
+    let { email } = req.body;
 
     try {
-        let data = new TeamModel(payload);
+        let check = await TeamModel.find({ email });
+        if (check.length == 1) {
+            res.send({ "msg": "Team Member already exist" });
+            return;
+        }
+        let data = new TeamModel(req.body);
         await data.save();
-        res.send("Added");
+        res.send({ "msg": "Team Member Successfully Added" });
     } catch (error) {
-        res.send("Error while getting data");
+        res.send({"msg": "Something went wrong please try again"});
     }
 });
 
 
-teamRouter.patch("/update", async (req,res)=>{
-    let {_id} = req.body;
+teamRouter.patch("/:id", async (req, res) => {
+    let _id = req.params.id;
     let payload = req.body;
 
     try {
-        let data = await TeamModel.findByIdAndUpdate({"_id": _id, payload});
-        res.send("Updated");
+        await TeamModel.findByIdAndUpdate({ "_id": _id }, payload);
+        res.send({ "msg": "Updated Successfully" });
     } catch (error) {
-        console.log("error in patch | team Router + + + + + +++++++++",error)
-        res.send("Error while getting data")
+        res.send({"msg": "Something went wrong please try again"});
     }
 });
 
-teamRouter.delete("/delete", async (req,res)=>{
-    let {_id} = req.body;
+teamRouter.delete("/:id", async (req, res) => {
+    let _id = req.params.id;
 
     try {
-        await TeamModel.findByIdAndRemove({"_id": _id});
-        res.send("Deleted");
+        await TeamModel.findByIdAndRemove({ "_id": _id });
+        res.send({ "msg": "Deleted Successfully" });
     } catch (error) {
-        res.send("Error while getting data")
+        res.send({"msg": "Something went wrong please try again"});
     }
 });
 
 
-module.exports={teamRouter}
+module.exports = { teamRouter }

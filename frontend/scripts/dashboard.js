@@ -5,7 +5,7 @@ var myChart = new Chart(ctx, {
   type: "bar",
   data: {
     labels: [
-      
+
       "Monday, Feb 20",
       "Tuesday, Feb 21",
       "Wednesday, Feb 22",
@@ -15,7 +15,7 @@ var myChart = new Chart(ctx, {
     ],
     datasets: [
       {
-        data: [1000, 21345 , 18483, 24003, 23489, 24092, 12034],
+        data: [1000, 21345, 18483, 24003, 23489, 24092, 12034],
         lineTension: 0,
         backgroundColor: "transparent",
         borderColor: "#007bff",
@@ -26,10 +26,10 @@ var myChart = new Chart(ctx, {
   },
   options: {
     tooltips: {
-        callbacks: {
-          label: (item) => `${item.yLabel} GB`,
-        },
+      callbacks: {
+        label: (item) => `${item.yLabel} Seconds`,
       },
+    },
     scales: {
       yAxes: [
         {
@@ -38,12 +38,12 @@ var myChart = new Chart(ctx, {
           },
           scaleLabel: {
             display: true,
-            labelString: 'Temperature'
+            labelString: 'Total Seconds'
 
-        },
+          },
 
-        labels:{display:true},
-        label:(item) => `${item.yLabel} GB`,
+          labels: { display: true },
+          label: (item) => `${item.yLabel} Seconds`,
         },
       ],
     },
