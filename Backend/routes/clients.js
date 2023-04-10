@@ -11,7 +11,7 @@ clientRouter.get("/", async (req, res) => {
         let data = await clientModel.find({ user: email }).sort({"create_at": -1});
         res.send(data);
     } catch (err) {
-        res.send("msg", "Something went wrong please try again");
+        res.send({"msg": "Something went wrong please try again"});
     }
 });
 
@@ -22,7 +22,7 @@ clientRouter.get("/:id", async (req, res) => {
         let data = await clientModel.findById(_id);
         res.send(data);
     } catch (err) {
-        res.send("msg", "Something went wrong please try again");
+        res.send({"msg": "Something went wrong please try again"});
     }
 });
 
@@ -39,7 +39,7 @@ clientRouter.post("/", async (req, res) => {
             res.send({ msg: "Client Successfully Added" });
         }
     } catch (err) {
-        res.send("msg", "Something went wrong please try again");
+        res.send({"msg": "Something went wrong please try again"});
     }
 });
 
@@ -50,7 +50,7 @@ clientRouter.delete("/:id", async (req, res) => {
         await clientModel.findByIdAndRemove(_id);
         res.send({ "msg": "Deleted Successfully" });
     } catch (err) {
-        res.send("msg", "Something went wrong please try again");
+        res.send({"msg": "Something went wrong please try again"});
     }
 });
 
@@ -61,7 +61,7 @@ clientRouter.patch("/:id", async (req, res) => {
         await clientModel.findByIdAndUpdate(_id, req.body, { new: true, });
         res.send({ "msg": "Updated Successfully" });
     } catch (err) {
-        res.send("msg", "Something went wrong please try again");
+        res.send({"msg": "Something went wrong please try again"});
     }
 });
 

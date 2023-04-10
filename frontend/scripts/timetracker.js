@@ -16,12 +16,6 @@ async function getAllProjects() {
         let res = await data.json();
 
         if (res.length == 0) {
-            setTimeout(() => {
-                confirm("You don't have any Project Click on OK to add Project");
-                if (confirm) {
-                    window.location.href = "../files/projects.html";
-                }
-            }, 2000);
         } else {
             let array = [];
             array = res.map((item) => {
@@ -146,6 +140,7 @@ async function stopTimer() {
             body: JSON.stringify(updatedObj),
         });
         const data = await response.json();
+        console.log(data);
         if (data.msg == "Updated Successfully") {
             location.reload();
         }
@@ -226,10 +221,14 @@ function displayTimeTracker(array) {
                     <span>Project Name : <b>${item.projectName.substring(0, 50)}</b></span>
                 </div>
                 <div>
-                    <span>Total Time :  <b>${timeString}</b></span>
+                    <span>Total Time :  <b id="${item._id}">${timeString}</b></span>
                 </div>
                 <div>
-                    <i title=${item.task} onClick="deleteTimeTracker('${item._id}')" class="far fa-trash-alt"></i>
+                    <button id="restartButton+${item._id}" class="show cssButton" onClick='restartTimer("${item._id}")'>Restart</button>
+                    <button id="restopButton+${item._id}" class="hidden cssButton" onClick='stopTimer("${item._id}", "${item.projectName}")'>Stop</button>
+                </div>
+                <div>
+                    <i title=${item.task} onClick="deleteTimeTracker('${item._id}', '${item.projectName}', '${item.totalTime}')" class="far fa-trash-alt"></i>
                 </div>
             </div>`
     }).join("");
@@ -239,7 +238,7 @@ function displayTimeTracker(array) {
 
 
 
-async function deleteTimeTracker(id) {
+async function deleteTimeTracker(id, projectName, totalTime) {
     const confirmed = confirm("Do you really want to delete Task?");
 
     if (confirmed) {
@@ -248,15 +247,13 @@ async function deleteTimeTracker(id) {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",
-                    authorization: localStorage.getItem("user")
+                    authorization: localStorage.getItem("user"),
+                    "projectname": projectName,
+                    "totaltime": totalTime
                 }
             });
-            const data = await response.json();
-            if (data.msg == "Deleted Successfully") {
-                getAllTasks();
-            } else {
-                alert(data.msg)
-            }
+            await response.json();
+            getAllTasks();
         } catch (error) {
             console.error(error);
         }

@@ -9,7 +9,7 @@
   margin: auto;
 }
 
-.Navbar > div {
+.Navbar>div {
   white-space: nowrap;
   margin: 17px;
 }
@@ -65,12 +65,14 @@
   display: inline-block;
   color: #3077bd;
 }
+
 .headPart i span {
   padding-left: 5px;
   letter-spacing: 0.8px;
   font-weight: 400;
   color: #3d5ebd;
 }
+
 .headPart i span:hover {
   text-decoration: underline;
 }
@@ -98,7 +100,7 @@
   align-items: center;
 }
 
-.featureList > div:nth-child(even) {
+.featureList>div:nth-child(even) {
   flex-direction: row-reverse;
 }
 
@@ -128,6 +130,7 @@
   justify-content: space-evenly;
   text-align: left;
 }
+
 /* -------------------------Features End--------------------------------- */
 
 .platform {
@@ -147,7 +150,7 @@
   width: 100%;
 }
 
-.platSec > div {
+.platSec>div {
   width: 33%;
   align-items: flex-start;
   margin-left: 10%;
@@ -166,7 +169,7 @@
   width: 100%;
 }
 
-.platSec1 > div {
+.platSec1>div {
   width: 25%;
   align-items: flex-start;
   margin-left: 14%;
@@ -200,12 +203,14 @@
   display: inline-block;
   color: #3077bd;
 }
+
 .Footer i span {
   padding-left: 5px;
   letter-spacing: 0.8px;
   font-weight: 400;
   color: #3d5ebd;
 }
+
 .Footer i span:hover {
   text-decoration: underline;
 }
@@ -232,14 +237,14 @@
   color: #5a6b7b;
 }
 
-.lastFooter > div {
+.lastFooter>div {
   display: flex;
   flex-direction: column;
   flex-basis: auto;
   text-align: left;
 }
 
-.lastFooter > div:nth-child(1) a {
+.lastFooter>div:nth-child(1) a {
   text-decoration: none;
   color: #5a6b7b;
   font-size: 16px;
@@ -249,6 +254,7 @@
   font-size: 18px;
   color: #424853;
 }
+
 .lastFooter p {
   font-size: 16px;
 }
@@ -277,12 +283,12 @@
   margin-left: 20%;
 }
 
-.last > div {
+.last>div {
   flex-basis: 1;
   margin: 0 15px;
 }
 
-.last > div:nth-child(1) {
+.last>div:nth-child(1) {
   flex-grow: 1;
   text-align: left;
   margin: 0;
@@ -358,15 +364,15 @@
   transition: 0.4s;
 }
 
-input:checked + .slider {
+input:checked+.slider {
   background-color: #2196f3;
 }
 
-input:focus + .slider {
+input:focus+.slider {
   box-shadow: 0 0 1px #2196f3;
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
@@ -404,6 +410,7 @@ input:checked + .slider:before {
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
 }
+
 .midldeBox:hover {
   transform: translateY(-1%);
   box-shadow: 1px 1px 4px rgb(167, 165, 165);
@@ -458,9 +465,11 @@ body {
 .right {
   float: right;
 }
+
 .left {
   float: left;
 }
+
 .clear {
   clear: both;
 }
@@ -485,6 +494,7 @@ p {
   border-radius: 5px;
   opacity: 0.8;
 }
+
 .freebtn:hover {
   opacity: 1;
 }
@@ -493,6 +503,11 @@ p {
   font-size: 34px !important;
   color: #3d4859;
   font-weight: 400;
+  margin-top: 150px !important;
+  width: 100%;
+  text-align: center !important;
+  display: flex;
+  justify-content: center;
 }
 
 .blueBtn {
@@ -512,7 +527,103 @@ p {
   color: white;
 }
 
-.logoc>a>img{
- width: 100px;
- height: 80px;
+.logoc>a>img {
+  width: 100px;
+  height: 80px;
+}
+
+
+
+
+
+/* --------------------------- */
+
+@media (max-width: 600px) {
+  .Navbar {
+    width: 100%;
+    padding: 0;
+  }
+
+  .Navbar>div {
+    margin: 10px;
+  }
+
+  .extra {
+    display: none;
+  }
+
+  .Navbar__toggle {
+    display: block;
+  }
+
+  .Navbar__mobile {
+    display: none;
+  }
+
+  .headPart {
+    margin-top: 30px;
+  }
+
+  .Hdesc {
+    width: 60%;
+  }
+
+  .featureDes {
+    width: 70%;
+  }
+
+  .featureOne {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 5%;
+  }
+
+  .platSec>div {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .platSec1>div {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .Footer {
+    padding: 6% 5% 2%;
+  }
+
+  .footerList {
+    width: 80%;
+    margin: 25px auto;
+    justify-content: space-evenly;
+  }
+
+  .hideThis {
+    display: none !important;
+  }
+
+  .mainHeading {
+    margin-top: 150px !important;
+  }
+
+  .midldeBox {
+    width: 80% !important;
+  }
+
+  .makeImgSmall {
+    width: 250px !important;
+  }
+
+  #Navbar {
+    width: 100%;
+  }
+
+  #Navbar img {
+    width: 50px;
+    height: 50px;
+  }
 }

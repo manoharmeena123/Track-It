@@ -9,7 +9,7 @@ teamRouter.get("/", async (req, res) => {
         let data = await TeamModel.find({ "user": email }).sort({"created_at": -1});
         res.send(data);
     } catch (error) {
-        res.send("msg", "Something went wrong please try again");
+        res.send({"msg": "Something went wrong please try again"});
     }
 });
 
@@ -28,7 +28,7 @@ teamRouter.post("/", async (req, res) => {
         await data.save();
         res.send({ "msg": "Team Member Successfully Added" });
     } catch (error) {
-        res.send("msg", "Something went wrong please try again");
+        res.send({"msg": "Something went wrong please try again"});
     }
 });
 
@@ -41,7 +41,7 @@ teamRouter.patch("/:id", async (req, res) => {
         await TeamModel.findByIdAndUpdate({ "_id": _id }, payload);
         res.send({ "msg": "Updated Successfully" });
     } catch (error) {
-        res.send("msg", "Something went wrong please try again");
+        res.send({"msg": "Something went wrong please try again"});
     }
 });
 
@@ -52,7 +52,7 @@ teamRouter.delete("/:id", async (req, res) => {
         await TeamModel.findByIdAndRemove({ "_id": _id });
         res.send({ "msg": "Deleted Successfully" });
     } catch (error) {
-        res.send("msg", "Something went wrong please try again");
+        res.send({"msg": "Something went wrong please try again"});
     }
 });
 

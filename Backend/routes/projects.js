@@ -13,7 +13,7 @@ ProjectRouter.get("/:email", async (req, res) => {
       let data = await ProjectModel.find({ user }).sort({ "created_at": -1 });
       res.send(data);
    } catch (err) {
-      res.send("msg", "Something went wrong please try again");
+      res.send({"msg": "Something went wrong please try again"});
    }
 });
 
@@ -36,7 +36,7 @@ ProjectRouter.post("/", async (req, res) => {
       await newPro.save();
       res.send({ "msg": "Project Successfully Added" });
    } catch (error) {
-      res.send("msg", "Something went wrong please try again");
+      res.send({"msg": "Something went wrong please try again"});
    }
 })
 
@@ -50,7 +50,7 @@ ProjectRouter.delete("/:id", async (req, res) => {
       await ProjectModel.findByIdAndDelete(_id);
       res.send({ "msg": "deleted successfully" })
    } catch (error) {
-      res.send("msg", "Something went wrong please try again");
+      res.send({"msg": "Something went wrong please try again"});
    }
 })
 

@@ -32,7 +32,7 @@ userRouter.post("/register", async (req, res) => {
                 res.send({ "msg": "User Signup Successful", "response": "ok" })
             })
         } catch (error) {
-            res.send("Error in Signup")
+            res.send({"msg": "Registration Failed Try Again"});
         }
     }
 });
