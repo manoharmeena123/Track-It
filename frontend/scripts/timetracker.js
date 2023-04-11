@@ -1,115 +1,263 @@
-var btn=document.getElementById("timer_start")
-var counter= document.getElementById("timer");
-var flag=0;
+const url = "https://faithful-deer-lingerie.cyclic.app";
 
-var count=0;
-btn.addEventListener("click",()=>{
-if(btn.textContent== "Start"){
-    start()
-}
-else {
-    stop()
-}
-});
-function start (){
-    if(flag === 0){
-        var start=setInterval(()=>{
-            count=count+1;
-            counter.textContent= count;
-            btn.innerHTML="Stop";
-            btn.style.background="red";
-            btn.style.color="white";
-            btn.style.border.color="red";
-            flag=1;
 
-            btn.addEventListener("click", ()=>{
-                clearInterval(start)
-                btn.innerHTML="Start";
-                flag=0;
-                btn.style.background="#5FBDF7";
-                btn.style.color="white";
-                btn.style.border.color="#5FBDF7";
-            })
-        },1000)
+// To Fetch and Show the Projects Data in select tag
+async function getAllProjects() {
+    let id = localStorage.getItem("email");
+    try {
+        let data = await fetch(`${url}/projects/${id}`, {
+            method: "GET",
+            headers: {
+                "Content-type": "application/json",
+                authorization: localStorage.getItem("user"),
+            },
+        });
+
+        let res = await data.json();
+
+        if (res.length == 0) {
+        } else {
+            let array = [];
+            array = res.map((item) => {
+                return `
+                    <option value="${item.projectName}">${item.projectName}</option>
+                `;
+            });
+            document.getElementById("project__list").innerHTML += array;
+        }
+    } catch (error) {
+        console.log("Error while getting userData " + error);
     }
 }
+getAllProjects();
 
-////////////////////////////////////////////////
-// btn.addEventListener("click",stop);
-function stop(){
-        btn.innerHTML="Start";
-        flag=0;
 
-        if(btn.value= "Stop")
-            flag=1;
-            var name= document.getElementById("query").value;
 
-        
-        if(name === ""){
-            alert("Please fill the details")
+
+
+
+var startingTime;
+var task;
+const timer = document.getElementById("timer");
+const startButton = document.getElementById("startButton");
+const stopButton = document.getElementById("stopButton");
+
+let startTime;
+let intervalId;
+
+
+async function startTimer() {
+    let taskName = document.querySelector("#Timetracker__description");
+    let projectName = document.querySelector("#project__list");
+    let email = localStorage.getItem("email");
+
+    if (taskName.value == "") {
+        alert("Please add Task Name");
+        return;
+    } else if (projectName.value == "") {
+        alert("Please select Project Name");
+        return;
+    } else if (email == "" || email == undefined || email == null) {
+        alert("Please Login");
+        window.location.href = "../files/login.html";
+        return;
+    }
+
+    document.getElementById("startButton").style.display = "none";
+    document.getElementById("stopButton").style.display = "block";
+
+    const now = new Date();
+    const utcTime = now.toISOString();
+    let obj = {
+        task: taskName.value,
+        date: utcTime,
+        startTime: utcTime,
+        user: email,
+        projectName: projectName.value,
+    };
+
+    try {
+        const response = await fetch(`${url}/tasks`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                authorization: localStorage.getItem("user"),
+            },
+            body: JSON.stringify(obj),
+        });
+        const data = await response.json();
+        if (
+            data.msg == "Task already Exist" ||
+            data.msg == "Something went wrong please try again"
+        ) {
+            alert(data.msg);
+            return;
+        } else {
+            localStorage.setItem("startingTaskID", data._id);
+            localStorage.setItem("startingTaskTime", data.startTime);
+            localStorage.setItem("projectName", data.projectName);
+            task = data._id;
         }
-    //    let html=""
-    let arr=JSON.parse(localStorage.getItem("userdata")) || []
-var a= document.getElementById("query");
-var b = document.getElementById("timer");
+    } catch (error) {
+        console.error(error);
+    }
 
-let obj={
-    name :a.value,
-    count:b.textContent,
-}
-arr.push(obj)
-localStorage.setItem("userdata",JSON.stringify(arr))
-count=0;
-a.innerText=""
-b.innerText="00:00:00";
-document.getElementById("timetracker_body").innerHTML="";
-console.log(arr)
-arr.forEach((el)=>{
-let div=document.createElement("div")
-div.classList.add("details")
-    let ab= `
-  
-    <div class="name" >
-    <input  placeholder=""  id="desc"  value="${el.name}" >
-</div>
-<div class="project">
-        <i class="fa-solid fa-circle-plus" id="plus"></i>
-        <p class="p">Project</p>
-
-</div>
-
-<div class="tag">
-<img src="https://app.clockify.me/assets/nav-icons/tags.svg" alt="" class="tag">
-</div>
-<div class="dollar">
-<p>$</p>
-</div>
-<div class="calender">
-<img src="https://app.clockify.me/assets/nav-icons/calendar.svg" alt="" class="calender">
-</div>
-<div class="time">
- <input type="number"  value="${el.count}" id="counttime" > 
-</div>
-<div class="play">
-<img src="https://app.clockify.me/assets/ui-icons/play.svg" alt="" class="play">
-</div>
-<div class="menubtn">
-<img src="https://app.clockify.me/assets/ui-icons/menu-dots-vertical.svg" alt="" class="menubtn">
-<ul class="subclass">
-    <li class="delete"><button type="button" class="delete">Delete</button></li>
-</ul>
-</div>
-   
-  `
-  div.innerHTML=ab;
-
-  
-  document.getElementById("timetracker_body").append(div);
-
-}) 
-
+    startingTime = new Date();
+    intervalId = setInterval(updateTimer, 1000);
 }
 
 
+async function stopTimer() {
+    document.getElementById("startButton").style.display = "block";
+    document.getElementById("stopButton").style.display = "none";
+    clearInterval(intervalId);
+
+
+    let prName = localStorage.getItem("projectName");
+    let getID = localStorage.getItem("startingTaskID");
+
+    const startingTaskTime = localStorage.getItem("startingTaskTime");
+    const startDate = new Date(startingTaskTime);
+
+    const now = new Date();
+    const utcTime = now.toISOString();
+    let endTime = utcTime;
+    let totalTime = now - startDate;
+
+    let updatedObj = {
+        "endTime": endTime,
+        "totalTime": totalTime
+    };
+
+    try {
+        const response = await fetch(`${url}/tasks/update/${getID}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                authorization: localStorage.getItem("user"),
+                "projectname": prName
+            },
+            body: JSON.stringify(updatedObj),
+        });
+        const data = await response.json();
+        console.log(data);
+        if (data.msg == "Updated Successfully") {
+            location.reload();
+        }
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+function updateTimer() {
+    const currentTime = new Date();
+    const elapsedTime = new Date(currentTime - startingTime);
+    const hours = elapsedTime.getUTCHours().toString().padStart(2, "0");
+    const minutes = elapsedTime.getUTCMinutes().toString().padStart(2, "0");
+    const seconds = elapsedTime.getUTCSeconds().toString().padStart(2, "0");
+    timer.innerText = `${hours}:${minutes}:${seconds}`;
+}
+
+startButton.addEventListener("click", startTimer);
+stopButton.addEventListener("click", stopTimer);
+
+
+
+
+
+
+// Show all data list
+async function getAllTasks() {
+    const id = localStorage.getItem("email");
+    try {
+        let data = await fetch(`${url}/tasks/${id}`, {
+            method: "GET",
+            headers: {
+                "Content-type": "application/json",
+                authorization: localStorage.getItem("user"),
+            },
+        });
+        let res = await data.json();
+        displayTimeTracker(res);
+    } catch (error) {
+        console.log("Error", error);
+    }
+}
+getAllTasks();
+
+
+
+
+
+// Render Function
+function displayTimeTracker(array) {
+    let ans = array.map((item) => {
+        // converting date into readable format
+        const dateString = item.date;
+        const date = new Date(dateString);
+        const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true };
+        const formattedDate = date.toLocaleString('en-US', options);
+
+        // Converting total time
+        const milliseconds = item.totalTime;
+        const seconds = Math.floor(milliseconds / 1000);
+        const hours = Math.floor(seconds / 3600);
+        const minutes = Math.floor((seconds % 3600) / 60);
+        const remainingSeconds = seconds % 60;
+        const timeString = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+
+
+
+
+        return `
+            <div class="Timetracker__body__info">
+                <div>
+                    <span>Started : <b>${formattedDate}</b> </span>
+                </div>
+                <div>
+                    <span>Task :  <span><b>${item.task.length >= 22 ? item.task.substring(0, 30) + '...' : item.task}</b></span>
+                </div>
+                <div>
+                    <span>Project Name : <b>${item.projectName.length >= 20 ? item.projectName.substring(0, 30) + '...' : item.projectName}</b></span>
+                </div>
+                <div>
+                    <span>Total Time :  <b id="${item._id}">${timeString}</b></span>
+                </div>
+                <div>
+                    <button id="restartButton+${item._id}" class="show cssButton" onClick='restartTimer("${item._id}")'>Resume</button>
+                    <button id="restopButton+${item._id}" class="hidden cssButton" onClick='stopTimer("${item._id}", "${item.projectName}")'>Stop</button>
+                </div>
+                <div>
+                    <button title=${item.task} onClick="deleteTimeTracker('${item._id}', '${item.projectName}', '${item.totalTime}')" class="delete">Delete</button>
+                </div>
+            </div>`
+    }).join("");
+
+    document.getElementById("Timetracker__body").innerHTML = ans;
+}
+
+
+
+async function deleteTimeTracker(id, projectName, totalTime) {
+    const confirmed = confirm("Do you really want to delete Task?");
+
+    if (confirmed) {
+        try {
+            const response = await fetch(`${url}/tasks/delete/${id}`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                    authorization: localStorage.getItem("user"),
+                    "projectname": projectName,
+                    "totaltime": totalTime
+                }
+            });
+            await response.json();
+            getAllTasks();
+        } catch (error) {
+            console.error(error);
+        }
+    }
+}
 
 

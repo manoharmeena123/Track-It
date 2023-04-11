@@ -1,41 +1,101 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Track it</title>
-    <link rel="stylesheet" href="../css/timetracker.css">
-    <link rel="icon" href="../images/favicon.ico">
-    <link rel="stylesheet" href="../css/project.css">
-    <link rel="stylesheet" href="../css/sidebar.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Time Tracker • TrackIt</title>
 
-</head>
-<body>
-    <nav class="navbar" id="navbar"></nav> 
+    <link rel="stylesheet" href="../css/timetracker.css" />
+    <link rel="icon" href="../images/favicon.ico" />
 
-     <!----------------------side bar ----------------------------->
-     <div class="sidebar">
-      
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="../navbar/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="d-flex" id="wrapper">
+      <!-- Sidebar-->
+      <div class="border-end bg-white" id="sidebar-wrapper">
+        <div class="sidebar-heading border-bottom bg-light">TrackIT</div>
+        <div class="list-group list-group-flush">
+          <a
+            class="list-group-item list-group-item-action list-group-item-light p-3"
+            href="./timetracker.html"
+            >Time Tracker</a
+          >
+          <a
+            class="list-group-item list-group-item-action list-group-item-light p-3"
+            href="./reports.html"
+            >Reports</a
+          >
+          <a
+            class="list-group-item list-group-item-action list-group-item-light p-3"
+            href="./projects.html"
+            >Projects</a
+          >
+          <a
+            class="list-group-item list-group-item-action list-group-item-light p-3"
+            href="./team.html"
+            >Teams</a
+          >
+          <a
+            class="list-group-item list-group-item-action list-group-item-light p-3"
+            href="./client.html"
+            >Clients</a
+          >
+        </div>
       </div>
-   <!---------------------------- time traker---------------------->
-
-   <tbody>
-
-   </tbody>
-
- 
-    <div  id="timetracker_body">
-      
+      <!-- Page content wrapper-->
+      <div id="page-content-wrapper">
+        <!-- Top navigation-->
+        <nav
+          class="navbar navbar-expand-lg navbar-light bg-light border-bottom"
+        >
+          <div class="container-fluid">
+            <button class="btn btn-primary" id="sidebarToggle">Menu</button>
+            <h2 id="headingTeller">Time Tracker</h2>
+          </div>
+        </nav>
+        <!-- Page content-->
+        <div class="container-fluid">
+          <div class="product__container">
+            <div
+              id="product__container__content"
+              class="product__container__content"
+            >
+              <div class="Timetracker">
+                <div class="Timetracker__head">
+                  <div>
+                    <input
+                      class="Timetracker__description"
+                      id="Timetracker__description"
+                      placeholder="Enter Task Name"
+                    />
+                  </div>
+                  <div>
+                    <select id="project__list">
+                      <option value="">Select Your Project</option>
+                    </select>
+                  </div>
+                  <div>
+                    <p id="timer">00:00:00</p>
+                  </div>
+                  <div>
+                    <button id="startButton">Start</button>
+                    <button id="stopButton">Stop</button>
+                  </div>
+                </div>
+                <div id="Timetracker__body" class="Timetracker__body"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-
-
-
-  
-    
-</body>
+  </body>
 </html>
-<script src="../scripts/timetracker.js" ></script>
-<script src="https://kit.fontawesome.com/54a5973b68.js" crossorigin="anonymous"></script>
-<script src="../scripts/navbar1.js" type="module"></script>
-<script src="../scripts/sidebar.js" type="module"></script>
+<script src="../scripts/timetracker.js"></script>
+<script src="../scripts/restartTimer.js"></script>
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="../navbar/scripts.js"></script>

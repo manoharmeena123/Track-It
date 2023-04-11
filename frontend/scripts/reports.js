@@ -26,12 +26,10 @@ weekly.addEventListener("click", () => {
 
 
 
-// Weekly Section
-// https://calm-colt-uniform.cyclic.app/projects/
-
 async function getData() {
+    let id = localStorage.getItem("email");
     try {
-        let data = await fetch(`https://calm-colt-uniform.cyclic.app/tasks`, {
+        let data = await fetch(`https://faithful-deer-lingerie.cyclic.app/tasks/${id}`, {
             method: "GET",
             headers: {
                 'Content-type': "application/json",
@@ -48,44 +46,41 @@ async function getData() {
 getData();
 
 function renderBarGraph(data) {
-    console.log(data)
     let dataArray = [];
     let endTimeDataArray = [];
     let totalTimeToShow = 0;
     for (let a = 0; a < data.length; a++) {
-        dataArray.push(data[a].totalTimeInSec)
-        let aa = data[0].endTime.split(" ");
-        let dayname = aa[0];
-        let month = aa[1];
-        let day = aa[2];
-        let year = aa[3];
-        endTimeDataArray.push(dayname+" "+day+" "+ month+" "+ year)
-        totalTimeToShow += data[a].totalTimeInSec;
+
+
+
+        // converting endTime into readable form
+        const date = new Date(data[a].date);
+        const dayName = date.toLocaleDateString('en-US', { weekday: 'short' });
+        const day = date.getUTCDate();
+        const month = date.toLocaleDateString('en-US', { month: 'long' });
+        const year = date.getUTCFullYear();
+        const formattedDate = `${dayName} ${day}-${month}-${year}`;
+        endTimeDataArray.push(formattedDate)
+
+
+
+        totalTimeToShow += data[a].totalTime;
+        dataArray.push(data[a].totalTime)
     }
 
-    
 
-    
+    const milliseconds = totalTimeToShow;
+    const seconds = Math.floor(milliseconds / 1000);
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    const remainingSeconds = seconds % 60;
+    var timeString = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
 
 
-    let hours = Math.floor(totalTimeToShow / 3600);
-    let remaining_seconds = totalTimeToShow % 3600;
-    let minutes = Math.floor(remaining_seconds / 60);
-    let seconds = Math.floor(remaining_seconds % 60);
 
-    if (hours < 10) {
-        hours = "0" + hours;
-    }
-    if (minutes < 10) {
-        minutes = "0" + minutes;
-    }
-    if (seconds < 10) {
-        seconds = "0" + seconds;
-    };
-    let showExactTIme = hours + ":" + minutes + ":" + seconds;
-    console.log(showExactTIme);
 
-    document.querySelector("#totalWorkHour").innerHTML = showExactTIme;
+
+    document.querySelector("#totalWorkHour").innerHTML = timeString;
 
 
 
@@ -97,7 +92,7 @@ function renderBarGraph(data) {
         data: {
             labels: endTimeDataArray || ['-'],
             datasets: [{
-                label: 'Total Seconds',
+                label: 'Total miliseconds',
                 data: dataArray || [0],
                 backgroundColor: ['#36A2EB', '#FF6384', '#4BC0C0', '#FF9F40', '#9966FF', 'royalblue'],
                 barThickness: 100,
@@ -127,8 +122,14 @@ function renderCardList(data) {
             .map((item) => {
                 let id = item._id;
                 let title = item.task;
-                let totalTime = item.totalTimeInSec;
-                return getAsCard(id, title, totalTime);
+                let totalTimeinMiliSeconds = item.totalTime;
+                const milliseconds = item.totalTime;
+                const seconds = Math.floor(milliseconds / 1000);
+                const hours = Math.floor(seconds / 3600);
+                const minutes = Math.floor((seconds % 3600) / 60);
+                const remainingSeconds = seconds % 60;
+                var timeString = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+                return getAsCard(id, title, timeString, totalTimeinMiliSeconds);
             })
             .join("")}
       </div>
@@ -148,21 +149,13 @@ function renderCardList(data) {
 
 function showInPieChart(value) {
 
-    let hours = Math.floor(value / 3600);
-    let remaining_seconds = value % 3600;
-    let minutes = Math.floor(remaining_seconds / 60);
-    let seconds = Math.floor(remaining_seconds % 60);
-
-    if (hours < 10) {
-        hours = "0" + hours;
-    }
-    if (minutes < 10) {
-        minutes = "0" + minutes;
-    }
-    if (seconds < 10) {
-        seconds = "0" + seconds;
-    };
-    let showExactTIme = hours + ":" + minutes + ":" + seconds;
+    let milliseconds = value;
+    let seconds = Math.floor(milliseconds / 1000);
+    let hours = Math.floor(seconds / 3600);
+    let minutes = Math.floor((seconds % 3600) / 60);
+    let remainingSeconds = seconds % 60;
+    var timeString = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+    let showExactTIme = timeString;
 
 
 
@@ -182,7 +175,7 @@ function showInPieChart(value) {
         data: {
             labels: ['Total Work Hours'],
             datasets: [{
-                label: `Total Work Hours ${showExactTIme}    Total Work Seconds`,
+                label: `Total Work Hours ${showExactTIme}    Total Work miliseconds`,
                 data: [value],
                 backgroundColor: [getRandomColor()],
                 barThickness: 100,
@@ -202,41 +195,25 @@ function getRandomColor() {
     // generate random RGB values
     var r, g, b;
     do {
-      r = Math.floor(Math.random() * 256);
-      g = Math.floor(Math.random() * 256);
-      b = Math.floor(Math.random() * 256);
+        r = Math.floor(Math.random() * 256);
+        g = Math.floor(Math.random() * 256);
+        b = Math.floor(Math.random() * 256);
     } while (r < 100 || g < 100 || b < 100);
-  
+
     // convert to hex string
     var hex = "#" + r.toString(16) + g.toString(16) + b.toString(16);
-  
+
     return hex;
-  }
+}
 
 
 
 
-function getAsCard(id, title, totalTime) {
-    let hours = Math.floor(totalTime / 3600);
-    let remaining_seconds = totalTime % 3600;
-    let minutes = Math.floor(remaining_seconds / 60);
-    let seconds = Math.floor(remaining_seconds % 60);
-
-    if (hours < 10) {
-        hours = "0" + hours;
-    }
-    if (minutes < 10) {
-        minutes = "0" + minutes;
-    }
-    if (seconds < 10) {
-        seconds = "0" + seconds;
-    };
-    let showExactTIme = hours + ":" + minutes + ":" + seconds;
-
+function getAsCard(id, title, totalTime, totalTimeinMiliSeconds) {
     return `
-    <div class="data-box data-box-values" data-id="${id}" data-time="${totalTime}">
-        <p data-id="${id}" data-time="${totalTime}">${title}</p>
-        <p data-id="${id}" data-time="${totalTime}">${hours + " : " + minutes + " : " + seconds}</p>
+    <div class="data-box data-box-values" data-id="${id}" data-time="${totalTimeinMiliSeconds}">
+        <p data-id="${id}" data-time="${totalTimeinMiliSeconds}">${title}</p>
+        <p data-id="${id}" data-time="${totalTimeinMiliSeconds}">${totalTime}</p>
     </div>
     `;
 };
@@ -246,8 +223,9 @@ function getAsCard(id, title, totalTime) {
 
 // Weekly Section
 document.querySelector("#weekly").addEventListener("click", async function getData() {
+    let id = localStorage.getItem("email");
     try {
-        let data = await fetch(`https://calm-colt-uniform.cyclic.app/tasks`, {
+        let data = await fetch(`https://faithful-deer-lingerie.cyclic.app/tasks/${id}`, {
             method: "GET",
             headers: {
                 'Content-type': "application/json",
@@ -255,6 +233,7 @@ document.querySelector("#weekly").addEventListener("click", async function getDa
             }
         });
         let res = await data.json();
+
         renderCardList2(res);
     } catch (error) {
         console.log("Error while getting userData " + error);
@@ -272,10 +251,24 @@ function renderCardList2(data) {
             .map((item) => {
                 let id = item._id;
                 let title = item.task;
+
+                const date = new Date(item.endTime);
+                const dayName = date.toLocaleDateString('en-US', { weekday: 'short' });
+                const day = date.getUTCDate();
+                const month = date.toLocaleDateString('en-US', { month: 'long' });
+                const year = date.getUTCFullYear();
+                const hours = date.getUTCHours().toString().padStart(2, '0');
+                const minutes = date.getUTCMinutes().toString().padStart(2, '0');
+                const seconds = date.getUTCSeconds().toString().padStart(2, '0');
+                const formattedDate = `${dayName} ${day}-${month}-${year} ${hours}:${minutes}:${seconds}`;
+
+
+
+
+
                 let startTime = item.startTime;
-                let endTime = item.endTime;
-                let totalTime = item.totalTimeInSec;
-                return getAsCard2(id, title, startTime, endTime, totalTime);
+                let totalTime = item.totalTime;
+                return getAsCard2(id, title, startTime, formattedDate, totalTime);
             })
             .join("")}
       </div>
@@ -285,28 +278,35 @@ function renderCardList2(data) {
 
 
 function getAsCard2(id, title, startTime, endTime, totalTime) {
-    let hours = Math.floor(totalTime / 3600);
-    let remaining_seconds = totalTime % 3600;
-    let minutes = Math.floor(remaining_seconds / 60);
-    let seconds = Math.floor(remaining_seconds % 60);
 
-    if (hours < 10) {
-        hours = "0" + hours;
-    }
-    if (minutes < 10) {
-        minutes = "0" + minutes;
-    }
-    if (seconds < 10) {
-        seconds = "0" + seconds;
-    };
-    let showExactTIme = hours + ":" + minutes + ":" + seconds;
+    const date = new Date(startTime);
+    const dayName = date.toLocaleDateString('en-US', { weekday: 'short' });
+    const day = date.getUTCDate();
+    const month = date.toLocaleDateString('en-US', { month: 'long' });
+    const year = date.getUTCFullYear();
+    const hourss = date.getUTCHours().toString().padStart(2, '0');
+    const minutess = date.getUTCMinutes().toString().padStart(2, '0');
+    const secondss = date.getUTCSeconds().toString().padStart(2, '0');
+    const formattedDate = `${dayName} ${day}-${month}-${year} ${hourss}:${minutess}:${secondss}`;
+
+
+
+
+    let milliseconds = totalTime;
+    let seconds = Math.floor(milliseconds / 1000);
+    let hours = Math.floor(seconds / 3600);
+    let minutes = Math.floor((seconds % 3600) / 60);
+    let remainingSeconds = seconds % 60;
+    var timeString = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+
+    let showExactTime = timeString;
 
     return `
     <div class="data-box-detailed" data-id="${id}">
         <p class="give-space-for-project-name">${title}</p>
-        <p>${startTime.split("GMT")[0]}</p>
-        <p>${endTime.split("GMT")[0]}</p>
-        <p>${showExactTIme}</p>
+        <p>${formattedDate}</p>
+        <p>${endTime}</p>
+        <p>${showExactTime}</p>
     </div>
     `;
 };

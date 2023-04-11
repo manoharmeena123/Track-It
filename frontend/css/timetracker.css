@@ -1,398 +1,216 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: sans-serif;
-}
-a {
-  text-decoration: none;
-  color: black;
-}
-.navbar {
-  display: flex;
-  align-items: center;
-}
-nav {
-  padding: 10px;
-  justify-content: space-between;
-  background-color: #fff;
-  position: fixed;
-  z-index: 10;
-  height: 80px;
-  width: 100%;
-  /* margin-bottom: 20px; */
-  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
-    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-}
-#logo {
-  height: 50px;
-  width: 200px;
-}
-.left {
-  width: 700px;
-}
-.navbar .menu {
-  width: 28px;
-  margin-right: 25px;
-  margin-bottom: 16px;
-}
-.right {
-  display: flex;
-  width: 35%;
-  justify-content: space-evenly;
-  margin-top: 40px;
-}
-.right .name {
-  width: 200px;
-  display: flex;
-  justify-content: space-evenly;
-}
-.right .name p {
-  font-size: 14px;
-}
-.right p {
-  font-size: large;
-}
-.navbar .question {
-  padding-top: 8px;
-}
-.navbar .notification {
-  padding-top: 8px;
-}
-.btn {
-  height: 35px;
-  width: 100px;
-  font-weight: 400;
-  font-size: 16px;
-  color: #5fbdf7;
-  border-radius: 5px;
-  border: 2px solid #5fbdf7;
-  background-color: transparent;
-  outline: none;
-  margin-bottom: 20px;
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
-.btn:hover {
-  background-color: #5fbdf7;
-  color: white;
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #cbcccc;
+
 }
 
-/* --------------drop down------------------- */
-.dropdown {
-  padding-bottom: 20px;
-  position: relative;
-  display: inline-block;
-}
-.dropbtn {
-  color: #333;
-  /* padding: 25px; */
-  font-size: 20px;
-  padding-left: 10px;
-}
-.dropdown-content {
-  left: -140px;
-  display: none;
-  position: absolute;
-  background-color: #ffffff;
-  min-width: 230px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  font-size: 18px;
-  color: rgb(91, 115, 151);
-  border-radius: 3px;
-  line-height: 20px;
-}
-.dropdown-content a {
-  color: black;
-  padding: 10px;
-  text-decoration: none;
-  display: block;
-}
-.dropdown-content a:hover {
-  background-color: #999;
-  color: #ffffff;
-  border-radius: 2px;
-}
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-.dropdown:hover .dropbtn {
-  text-decoration: none;
-  color: #999;
-  font-weight: 500;
-  background-color: rgb(255, 255, 255);
-  width: 120px;
-  height: 15px;
-  border-radius: 3px;
+.Timetracker {
+    width: 75%;
+    margin: 10px auto;
+    min-height: 91.5vh;
 }
 
-/* ---------------------dark theme change start--------------- */
-label {
-  position: absolute;
-  width: 54px;
-  height: 27px;
-  right: 20px;
-  border: 2px solid;
-  border-radius: 20px;
-  transition: 0.8s;
-}
-label:before {
-  position: absolute;
-  content: "";
-  width: 20px;
-  height: 19.5px;
-  border: 2px solid;
-  border-radius: 50%;
-  cursor: pointer;
-  background: #000;
-  transition: 0.8s;
-}
-label.active:before {
-  left: 24px;
-  background: #03a9f4;
-  transition: 0.8s;
-}
-body.night {
-  background: #000;
-  color: #03a0f4;
-  transition: 0.8s;
+#headingTeller {
+    font-family: 'Roboto', sans-serif !important;
+    text-align: center;
+    color: #5FBDF7;
+    margin-left: 10px;
 }
 
-/* --------------time tracker------------------ */
-.addproject {
-  width: 79%;
-  height: 100px;
-  display: flex;
-  justify-content: space-evenly;
-  position: absolute;
-  top: 16%;
-  left: 20%;
-  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
-    rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
-  padding-top: 20px;
-}
-.addproject input {
-  height: 60px;
-  width: 580px;
-  padding-left: 20px;
-  border: none;
-  font-size: medium;
-}
-.addproject input:hover {
-  border: 1px solid gray;
-  transition: all 0.6s;
-}
-.addproject .project {
-  display: flex;
-  width: 100px;
-  justify-content: space-between;
-  padding-top: 17px;
-  border: none;
-  cursor: pointer;
-}
-.addproject p {
-  color: #03a9f4;
-  font-size: 20px;
-  font-weight: bold;
-}
-.addproject .tag {
-  width: 38px;
-  padding-top: 8px;
-  border: none;
-  margin-left: 20px;
-}
-.addproject .dollar p {
-  width: 80px;
-  height: 80px;
-  font-size: 40px;
-  font-weight: 500;
-  border: 1px solid black;
-  padding-top: 11px;
-  border: none;
-  color: rgb(153, 153, 153);
-  cursor: pointer;
-}
-.addproject .dollar {
-  margin-left: 50px;
-}
-.addproject .timer {
-  font-size: 28px;
-  width: 140px;
-  padding-top: 17px;
-  border: none;
-  display: flex;
-}
-.addproject .toggle {
-  transition: all 0.3s ease;
-  z-index: 1;
-}
-.addproject .toggle.active {
-  transform: scale(0.9);
+
+.Timetracker__navigation {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.addproject .start {
-  padding-top: 8px;
-  border: none;
-}
-.addproject button:hover {
-  background: #065f8f;
-  color: white;
-}
-
-.addproject button {
-  width: 80px;
-  height: 50px;
-  background: #03a9f4;
-  border: none;
-}
-.addproject .twologo {
-  padding-right: 40px;
-  padding-top: 17px;
-  border: none;
+.Timetracker__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 99%;
+    border-radius: 6px;
+    align-items: center;
+    box-shadow: 2px 2px 16px rgb(196, 196, 196);
+    background-color: white;
+    color: black;
 }
 
-/* ---------------This week---------------- */
-.thisweek {
-  width: 79%;
-  height: 50px;
-  display: flex;
-  justify-content: space-between;
-  position: absolute;
-  top: 35%;
-  left: 20%;
-  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
-    rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
-  padding-top: 20px;
-  padding-left: 14px;
-  padding-right: 14px;
-  background: #e4eaee;
+
+.Timetracker__head>div {
+    margin: 5px auto;
+    padding: 5px 0px;
 }
 
-/* -----------------details--------------------- */
-.details {
-  width: 79%;
-  height: 100px;
-  display: flex;
-  justify-content: space-evenly;
-  position: absolute;
-  top: 41.5%;
-  left: 20%;
-  padding-top: 20px;
-  box-shadow: rgba(9, 30, 66, 0.25) 0px 5px 1px,
-    rgba(9, 30, 66, 0.25) 0px 10px 1px 1px;
-}
-.details .name {
-  padding-top: 13px;
-}
-.details .name #desc {
-  height: 28px;
-  width: 200px;
-  padding-left: 20px;
-  font-size: medium;
-  color: #03a9f4;
-  border: none;
+.Timetracker__head input {
+    height: 40px;
+    min-width: 160px;
+    border-radius: 5px;
+    border: none;
+    padding-left: 15px;
+    font-size: 18px;
+    outline: none;
+    border: 0.1px solid rgb(192, 190, 190);
 }
 
-.details .project {
-  display: flex;
-  width: 100px;
-  justify-content: space-between;
-  padding-top: 17px;
-  border: none;
-}
-.details .p {
-  color: #03a9f4;
-  font-size: 20px;
-  font-weight: bold;
-}
-.details .dollar p {
-  width: 80px;
-  height: 80px;
-  font-size: 40px;
-  font-weight: 500;
-  border: 1px solid black;
-  padding-top: 11px;
-  border: none;
-  color: rgb(153, 153, 153);
-  cursor: pointer;
+.Timetracker__head input:focus {
+    border: 2px solid green;
 }
 
-.details .tag {
-  width: 38px;
-  padding-top: 8px;
-  border: none;
-}
-.details .calender {
-  width: 38px;
-  padding-top: 8px;
-  border: none;
-}
-.details .time {
-  padding-top: 16px;
-}
-.details .time #counttime {
-  height: 40px;
-  width: 80px;
-  font-size: 26px;
-  border: none;
-}
-.details .play {
-  width: 30px;
-  padding-top: 8px;
-  border: none;
-}
-.details .menubtn {
-  width: 13px;
-  height: 50px;
-  padding-top: 8px;
-  border: none;
+.Timetracker__head button {
+    height: 40px;
+    width: 100px;
+    font-weight: 600;
+    font-size: 16px;
+    color: #5FBDF7;
+    border-radius: 5px;
+    border: 2px solid #5FBDF7;
+    background-color: #5FBDF7;
+    color: white;
+    outline: none;
 }
 
-/* ------------delete button------------ */
-
-.details .menubtn ul li .delete {
-  background-color: black;
-  color: white;
-  width: 100px;
-  height: 50px;
-  line-height: 50px;
-  font-size: 25px;
-  list-style: none;
-  opacity: 0.6;
-  cursor: pointer;
-  text-align: center;
-}
-.details .menubtn ul li {
-  display: none;
-}
-.details .menubtn ul li:hover {
-  background: red;
-  color: #fff;
-  opacity: 1;
-  transform: scale(1.2);
-  z-index: 2;
-}
-.details .menubtn:hover ul > li {
-  display: block;
-}
-.details .delete {
-  width: 100px;
-  height: 50px;
+.Timetracker__head button:hover {
+    background-color: white;
+    color: #5FBDF7;
 }
 
-.small-sidebar {
-  width: 5%;
+.Timetracker__description {
+    width: 100%;
 }
-.small-sidebar a p {
-  display: none;
+
+.Timetracker__body {
+    margin: 100px auto;
 }
-.small-sidebar h3 {
-  display: none;
+
+
+.Timetracker__body__info {
+    display: block;
+    align-items: center;
+    justify-content: space-between;
+    text-transform: capitalize;
+    margin: 10px 10px;
+    padding: 10px 0px;
+    box-shadow: 2px 2px 4px rgb(207, 205, 205);
+    background-color: white;
+    font-size: 15px;
 }
-.small-sidebar hr {
-  width: 50%;
-  margin-bottom: 25px;
+
+.Timetracker__body__info:hover {
+    background-color: lightcyan;
 }
-.small-sidebar a span {
-  display: none;
+
+.Timetracker__body__info>div:nth-child(4) input {
+    width: 40px !important;
+    text-align: center;
+    padding: 0;
+}
+
+
+.Timetracker__body__info>div:nth-child(5) {
+    width: fit-content;
+    margin: auto;
+}
+
+.Timetracker__body__info>div:nth-child(6) {
+    width: fit-content;
+    margin: auto;
+}
+
+.delete {
+    width: fit-content;
+    background-color: red;
+    border: 0px;
+    color: white;
+    border-radius: 5px;
+    padding: 5px 30px;
+    text-align: center;
+}
+
+.Timetracker__body__info > div {
+    margin: 10px auto;
+}
+
+
+.Timetracker__body__info>div>span > b {
+    height: 40px;
+    text-align: center;
+    width: fit-content;
+    border-radius: 5px;
+    border: none;
+    font-size: 18px;
+    outline: none;
+}
+
+
+#stopButton {
+    display: none;
+}
+
+
+#timer {
+    padding-top: 15px;
+}
+
+
+
+/* Restart feature */
+.cssButton {
+    width: 100px;
+    border: 0px;
+    background-color: #5FBDF7;
+    color: white;
+    margin: 5px 5px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.cssButton:hover {
+    background-color: #a8d9f8;
+}
+
+
+#restopButton {
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
+
+@media only screen and (max-width:600px){
+    .Timetracker {
+        width: 95%;
+    }
+
+    .Timetracker__head {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    
+    
+    .Timetracker__head>div {
+        margin: 5px auto;
+        padding: 5px 0px;
+    }
+
+    .Timetracker__body__info {
+        display: block;
+        align-items: center;
+        justify-content: space-between;
+        text-transform: capitalize;
+        margin: 10px 10px;
+        box-shadow: 2px 2px 4px rgb(207, 205, 205);
+        background-color: white;
+        font-size: 15px;
+    }
 }
