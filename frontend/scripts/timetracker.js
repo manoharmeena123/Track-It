@@ -215,20 +215,20 @@ function displayTimeTracker(array) {
                     <span>Started : <b>${formattedDate}</b> </span>
                 </div>
                 <div>
-                    <p>Task :  <span><b>${item.task.substring(0, 150)}</b></span></p>
+                    <span>Task :  <span><b>${item.task.length >= 22 ? item.task.substring(0, 30) + '...' : item.task}</b></span>
                 </div>
                 <div>
-                    <span>Project Name : <b>${item.projectName.substring(0, 50)}</b></span>
+                    <span>Project Name : <b>${item.projectName.length >= 20 ? item.projectName.substring(0, 30) + '...' : item.projectName}</b></span>
                 </div>
                 <div>
                     <span>Total Time :  <b id="${item._id}">${timeString}</b></span>
                 </div>
                 <div>
-                    <button id="restartButton+${item._id}" class="show cssButton" onClick='restartTimer("${item._id}")'>Restart</button>
+                    <button id="restartButton+${item._id}" class="show cssButton" onClick='restartTimer("${item._id}")'>Resume</button>
                     <button id="restopButton+${item._id}" class="hidden cssButton" onClick='stopTimer("${item._id}", "${item.projectName}")'>Stop</button>
                 </div>
                 <div>
-                    <i title=${item.task} onClick="deleteTimeTracker('${item._id}', '${item.projectName}', '${item.totalTime}')" class="far fa-trash-alt"></i>
+                    <button title=${item.task} onClick="deleteTimeTracker('${item._id}', '${item.projectName}', '${item.totalTime}')" class="delete">Delete</button>
                 </div>
             </div>`
     }).join("");
@@ -259,3 +259,5 @@ async function deleteTimeTracker(id, projectName, totalTime) {
         }
     }
 }
+
+

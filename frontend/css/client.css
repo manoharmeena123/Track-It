@@ -7,11 +7,17 @@ body {
   background-color: whitesmoke;
 }
 
+#headingTeller {
+  font-family: 'Roboto', sans-serif !important;
+  text-align: center;
+  color: #5FBDF7;
+  margin-left: 10px;
+}
+
+
 #client_page {
   width: 80%;
-  margin: auto;
-  padding-top: 70px;
-  margin-left: 260px;
+  margin: 10px auto;
   height: fit-content;
 }
 

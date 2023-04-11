@@ -7,16 +7,22 @@ body {
   background-color: whitesmoke;
 }
 
+
+#headingTeller {
+  font-family: 'Roboto', sans-serif !important;
+  text-align: center;
+  color: #5FBDF7;
+  margin-left: 10px;
+}
+
 .main_div {
   width: 80%;
-  margin: auto;
-  padding-top: 30px;
-  margin-left: 260px;
+  margin: 20px auto;
   height: fit-content;
 }
 
 .team {
-  margin-top: 50px;
+  margin-top: 10px;
   color: #666666;
   font-family: Roboto;
   font-weight: 450;

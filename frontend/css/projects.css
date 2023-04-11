@@ -5,11 +5,18 @@
 body {
   background-color: whitesmoke;
 }
+
+#headingTeller {
+  font-family: 'Roboto', sans-serif !important;
+  text-align: center;
+  color: #5FBDF7;
+  margin-left: 10px;
+}
+
+
 .projects_page{
-  width: 80%;
-  margin: auto;
-  padding-top: 100px;
-  margin-left: 260px;
+  width: 90%;
+  margin: 10px auto;
   height: fit-content;
 }
 .top-head{
