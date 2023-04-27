@@ -59,8 +59,6 @@ First, you have to have to go to the `Home Page`. There you have to click on the
 
 ![Screenshot (55)](https://user-images.githubusercontent.com/108083768/221502816-c905ce52-1e9d-4809-9984-97f9b8e416b0.png)
 
-![Screenshot (56)](https://user-images.githubusercontent.com/108083768/221502846-4303077b-fc42-4065-a1fb-874b6ff49117.png)
-
 ![Screenshot (57)](https://user-images.githubusercontent.com/108083768/221502876-c329c2e9-95d5-483e-b66d-113e8877e05d.png)
 
 
